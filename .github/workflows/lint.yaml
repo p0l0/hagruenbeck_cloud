@@ -1,0 +1,26 @@
+name: "Lint"
+
+on:
+  push:
+    branches:
+      - "**" # run on all branches
+  pull_request:
+    branches:
+      - "**" # run on all branches
+
+jobs:
+  ruff:
+    name: "Lint"
+    runs-on: "ubuntu-latest"
+    steps:
+        - name: "Checkout the repository"
+          uses: "actions/checkout@v4.1.1"
+        
+        - name: "Set up Python"
+          uses: actions/setup-python@v5.0.0
+          with:
+            python-version: "3.11"
+            cache: "pip"
+        
+        - name: "Run"
+          run: make lint
