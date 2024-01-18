@@ -9,7 +9,7 @@ pre-commit==3.6.0
 pytest==7.4.4
 pytest-cov==4.1.0
 pytest-aiohttp==1.0.5
-pytest-asyncio==0.23.2
+pytest-asyncio==0.23.3
 codespell==2.2.2
 ruff==0.1.8
 yamllint==1.32.0
