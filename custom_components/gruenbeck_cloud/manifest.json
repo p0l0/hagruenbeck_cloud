@@ -1,0 +1,18 @@
+{
+  "domain": "gruenbeck_cloud",
+  "name": "Grünbeck Cloud",
+  "codeowners": ["@p0l0"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/p0l0/hagruenbeck_cloud",
+  "homekit": {},
+  "integration_type": "device",
+  "iot_class": "cloud_push",
+  "issue_tracker": "https://github.com/p0l0/hagruenbeck_cloud/issues",
+  "requirements": [
+    "pygruenbeck_cloud==0.0.2"
+  ],
+  "ssdp": [],
+  "version": "0.0.1",
+  "zeroconf": []
+}

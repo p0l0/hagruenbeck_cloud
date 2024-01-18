@@ -1,0 +1,64 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "username": "[%key:common::config_flow::data::username%]",
+          "password": "[%key:common::config_flow::data::password%]"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "cannot_connect_timeout": "Timeout trying to connect",
+      "unknown": "[%key:common::config_flow::error::unknown%]",
+      "no_devices": "No Devices found in account"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "next_regeneration": {
+        "name": "Next Regeneration"
+      },
+      "last_startup": {
+        "name": "Start-up date"
+      },
+      "last_service": {
+        "name": "Last service"
+      },
+      "raw_water": {
+        "name": "Raw Water"
+      },
+      "soft_water": {
+        "name": "Soft Water"
+      },
+      "soft_water_quantity": {
+        "name": "Soft Water Quantity"
+      },
+      "regeneration_counter": {
+        "name": "Regeneration Counter"
+      },
+      "current_flow_rate": {
+        "name": "Current Flow Rate"
+      },
+      "remaining_capacity_volume": {
+        "name": "Remaining Capacity m³"
+      },
+      "remaining_capacity_percentage": {
+        "name": "Remaining Capacity %"
+      },
+      "salt_range": {
+        "name": "Salt Range"
+      },
+      "salt_consumption": {
+        "name": "Salt Consumption"
+      },
+      "next_service": {
+        "name": "Next Service"
+      }
+    }
+  }
+}
