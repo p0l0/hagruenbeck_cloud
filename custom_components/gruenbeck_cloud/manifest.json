@@ -10,7 +10,7 @@
   "iot_class": "cloud_push",
   "issue_tracker": "https://github.com/p0l0/hagruenbeck_cloud/issues",
   "requirements": [
-    "pygruenbeck_cloud==0.0.2"
+    "pygruenbeck_cloud==0.0.3"
   ],
   "ssdp": [],
   "version": "0.0.1",
