@@ -5,9 +5,9 @@
 </p>
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
-[![GitHub release](https://img.shields.io/github/release/p0l0/hagruenbeck_cloud)](https://github.com/p0l0/gruenbeck_cloud/releases)
-![Build Pipeline](https://img.shields.io/github/actions/workflow/status/p0l0/gruenbeck_cloud/validate.yaml)
-![License](https://img.shields.io/github/license/p0l0/gruenbeck_cloud)
+[![GitHub release](https://img.shields.io/github/release/p0l0/hagruenbeck_cloud)](https://github.com/p0l0/hagruenbeck_cloud/releases)
+![Build Pipeline](https://img.shields.io/github/actions/workflow/status/p0l0/hagruenbeck_cloud/validate.yaml)
+![License](https://img.shields.io/github/license/p0l0/hagruenbeck_cloud)
 
 ![Project maintenance](https://img.shields.io/badge/maintainer-%40p0l0-blue.svg)
 [![BuyMeCoffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://www.buymeacoffee.com/p0l0)
