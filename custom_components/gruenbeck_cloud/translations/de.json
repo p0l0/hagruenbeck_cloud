@@ -1,0 +1,64 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Gerät ist bereits konfiguriert"
+    },
+    "error": {
+      "cannot_connect": "Verbindung fehlgeschlagen",
+      "cannot_connect_timeout": "Timeout beim Verbindungsversuch",
+      "unknown": "Unerwarteter Fehler",
+      "no_devices": "Keine Geräte im Account gefunden"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "password": "Passwort",
+          "username": "Benutzername"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "next_regeneration": {
+        "name": "Nächste Regeneration"
+      },
+      "startup": {
+        "name": "Inbetriebsnahmedatum"
+      },
+      "last_service": {
+        "name": "Letzte Wartung"
+      },
+      "raw_water": {
+        "name": "Rohwasserhärte"
+      },
+      "soft_water": {
+        "name": "Weichwasserhärte"
+      },
+      "soft_water_quantity": {
+        "name": "Weichwasserverbrauch"
+      },
+      "regeneration_counter": {
+        "name": "Anzahl Regenerationen"
+      },
+      "current_flow_rate": {
+        "name": "Aktueller Durchfluss"
+      },
+      "remaining_capacity_volume": {
+        "name": "Restkapazität m³"
+      },
+      "remaining_capacity_percentage": {
+        "name": "Restkapazität %"
+      },
+      "salt_range": {
+        "name": "Salzvorrat"
+      },
+      "salt_consumption": {
+        "name": "Salzverbrauch"
+      },
+      "next_service": {
+        "name": "Nächste Wartung"
+      }
+    }
+  }
+}

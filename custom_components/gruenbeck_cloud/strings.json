@@ -23,7 +23,7 @@
       "next_regeneration": {
         "name": "Next Regeneration"
       },
-      "last_startup": {
+      "startup": {
         "name": "Start-up date"
       },
       "last_service": {

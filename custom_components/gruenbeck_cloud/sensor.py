@@ -45,8 +45,8 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         value_fn=lambda device: device.next_regeneration,
     ),
     GruenbeckCloudEntityDescription(
-        key="last_startup",
-        translation_key="last_startup",
+        key="startup",
+        translation_key="startup",
         device_class=SensorDeviceClass.DATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.startup,
