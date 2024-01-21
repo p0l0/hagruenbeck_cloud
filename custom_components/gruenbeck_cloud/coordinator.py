@@ -7,6 +7,7 @@ from pygruenbeck_cloud import PyGruenbeckCloud
 from pygruenbeck_cloud.exceptions import (
     PyGruenbeckCloudConnectionClosedError,
     PyGruenbeckCloudError,
+    PyGruenbeckCloudResponseStatusError,
 )
 from pygruenbeck_cloud.models import Device
 
@@ -64,7 +65,10 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
 
             try:
                 await self.api.listen(callback=self.async_set_updated_data)
-            except PyGruenbeckCloudConnectionClosedError as err:
+            except (
+                PyGruenbeckCloudConnectionClosedError,
+                PyGruenbeckCloudResponseStatusError,
+            ) as err:
                 self.last_update_success = False
                 self.logger.error(err)
             except PyGruenbeckCloudError as err:
