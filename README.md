@@ -16,20 +16,20 @@ Custom Component to integrate Grünbeck Cloud based Water softeners into [Home A
 
 **This integration will set up the following entities.**
 
-| Platform                                     | Description                                                                                       |
-|----------------------------------------------|---------------------------------------------------------------------------------------------------|
-| `sensor.<device_name>_current_flow_rate`     | Sensor showing current flow rate in m³                                                            |
-| `sensor.<device_name>_last_service`          | Sensor showing when last service was                                                              |
-| `sensor.<device_name>_next_regeneration`     | Sensor showing when next regeneration will be                                                     |
-| `sensor.<device_name>_next_service`          | Sensor showing how many days left until next service                                              |
-| `sensor.<device_name>_raw_water`             | Sensor showing configured raw water value                                                         |
-| `sensor.<device_name>_regeneration_counter`  | Sensor showing current regeneration counter                                                       |
-| `sensor.<device_name>_remaining_capacity`    | Sensor showing remaining salt capacity in %                                                       |
-| `sensor.<device_name>_remaining_capacity_m3` | Sensor showing remaining salt capacity in m³                                                      |
-| `sensor.<device_name>_salt_consumption`      | Sensor showing current salt consumption in kg                                                     |
+| Platform                                     | Description                                                                                  |
+|----------------------------------------------|----------------------------------------------------------------------------------------------|
+| `sensor.<device_name>_current_flow_rate`     | Sensor showing current flow rate in m³                                                       |
+| `sensor.<device_name>_last_service`          | Sensor showing when last service was                                                         |
+| `sensor.<device_name>_next_regeneration`     | Sensor showing when next regeneration will be                                                |
+| `sensor.<device_name>_next_service`          | Sensor showing how many days left until next service                                         |
+| `sensor.<device_name>_raw_water`             | Sensor showing configured raw water value                                                    |
+| `sensor.<device_name>_regeneration_counter`  | Sensor showing current regeneration counter                                                  |
+| `sensor.<device_name>_remaining_capacity`    | Sensor showing remaining salt capacity in %                                                  |
+| `sensor.<device_name>_remaining_capacity_m3` | Sensor showing remaining salt capacity in m³                                                 |
+| `sensor.<device_name>_salt_consumption`      | Sensor showing current salt consumption in kg                                                |
 | `sensor.<device_name>_salt_range`            | Sensor showing how many days left until salt is empty (SD18 does not support it, and returns 999) |
-| `sensor.<device_name>_soft_water_quantity`   | Sensor showing current soft water quantity in liters                                              |
-| `sensor.<device_name>_last_startup`          | Sensor showing last start-up date                                                                 |
+| `sensor.<device_name>_soft_water_quantity`   | Sensor showing current soft water quantity in liters                                         |
+| `sensor.<device_name>_startup`               | Sensor showing start-up date                                                                 |
 
 # Installation
 ## HACS (Recommended)
@@ -56,9 +56,30 @@ https://github.com/p0l0/hagruenbeck_cloud/
 
 ## Energy/Water Dashboard
 
-The sensor `sensor.<device_name>_soft_water_quantity` can be added to the Energy Dashboard to monitor your water consumption.
+To get the real water consumption (at least for most people in Germany), you need to create a template sensor with following calculation (you need to change the sensors with your entity names):
 
-As this sensor is not being pushed regularly via WebSocket, and to avoid overloading the Grünbeck Cloud API, this sensor will only be updated every 360 seconds.
+```yaml
+template:
+  - sensor:
+      - name: "Current Water Usage"
+        unit_of_measurement: L
+        state_class: total_increasing
+        device_class: water
+        state: >
+          {%- set soft_water = states('sensor.<device_name>_soft_water')|float(0) -%}
+          {%- set raw_water = states('sensor.<device_name>_raw_water')|float(0) -%}
+          {%- set soft_water_quantity = states('sensor.<device_name>_soft_water_quantity')|float(0) -%}
+          {%- if (is_number(soft_water_quantity) and (soft_water_quantity > 1)) and (is_number(raw_water) and (raw_water > 1)) and (is_number(soft_water) and (soft_water > 1)) -%}
+            {%- set water_usage = ((soft_water*soft_water_quantity)/(raw_water-soft_water)|round(4) | float(unavailable)) -%}
+            {%- if is_number(water_usage) -%}
+              {{water_usage}}
+            {%- endif -%}
+          {%- endif -%}
+```
+
+The sensor `sensor.<device_name>_soft_water_quantity` is not being pushed regularly via WebSocket, and to avoid overloading the Grünbeck Cloud API, this sensor will only be updated every 360 seconds.
+
+If you get an error about missing statistics, it's because the entity needs to collect some data, it will be gone after a while.
 
 # Legal notice
 This is a personal project and isn't in any way affiliated with, sponsored or endorsed by [Grünbeck](https://www.gruenbeck.com/).

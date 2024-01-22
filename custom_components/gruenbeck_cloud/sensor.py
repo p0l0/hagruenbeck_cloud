@@ -28,7 +28,8 @@ from .models import GruenbeckCloudEntity
 _LOGGER = logging.getLogger(__name__)
 
 
-@dataclass(frozen=True, kw_only=True)
+# @dataclass(frozen=True, kw_only=True)
+@dataclass(kw_only=True)
 class GruenbeckCloudEntityDescription(SensorEntityDescription):
     """Describes a Grünbeck Cloud entity."""
 
@@ -45,8 +46,8 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         value_fn=lambda device: device.next_regeneration,
     ),
     GruenbeckCloudEntityDescription(
-        key="last_startup",
-        translation_key="last_startup",
+        key="startup",
+        translation_key="startup",
         device_class=SensorDeviceClass.DATE,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.startup,
