@@ -127,5 +127,6 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
             self._listen_websocket()
         else:
             await self.api.enter_sd()
+            await self.api.refresh_sd()
 
         return device
