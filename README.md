@@ -61,7 +61,7 @@ To get the real water consumption (at least for most people in Germany), you nee
 ```yaml
 template:
   - sensor:
-      - name: "Current Water Usage"
+      - name: "Total Water Usage"
         unit_of_measurement: L
         state_class: total_increasing
         device_class: water
@@ -70,11 +70,12 @@ template:
           {%- set raw_water = states('sensor.<device_name>_raw_water')|float(0) -%}
           {%- set soft_water_quantity = states('sensor.<device_name>_soft_water_quantity')|float(0) -%}
           {%- if (is_number(soft_water_quantity) and (soft_water_quantity > 1)) and (is_number(raw_water) and (raw_water > 1)) and (is_number(soft_water) and (soft_water > 1)) -%}
-            {%- set water_usage = ((soft_water*soft_water_quantity)/(raw_water-soft_water)|round(4) | float(unavailable)) -%}
-            {%- if is_number(water_usage) -%}
-              {{water_usage}}
-            {%- endif -%}
+            {%- set water_usage = ((soft_water*soft_water_quantity)/(raw_water-soft_water)+soft_water_quantity)|round(4) | float(unavailable) -%}
           {%- endif -%}
+          {%- if is_number(water_usage) -%}
+              {{water_usage}}
+          {%- endif -%}
+
 ```
 
 The sensor `sensor.<device_name>_soft_water_quantity` is not being pushed regularly via WebSocket, and to avoid overloading the Grünbeck Cloud API, this sensor will only be updated every 360 seconds.
