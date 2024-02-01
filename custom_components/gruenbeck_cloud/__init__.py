@@ -9,12 +9,15 @@ from homeassistant.core import HomeAssistant
 
 from .const import DOMAIN
 from .coordinator import GruenbeckCloudCoordinator
+from .services import register_services
 
 _LOGGER = logging.getLogger(__name__)
 
 # Supported Platforms
 PLATFORMS: list[Platform] = [
     Platform.SENSOR,
+    Platform.BINARY_SENSOR,
+    Platform.SELECT,
 ]
 
 
@@ -31,6 +34,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     # Reload entry when its updated
     entry.async_on_unload(entry.add_update_listener(async_reload_entry))
+
+    # Register Services
+    register_services(hass, entry)
 
     return True
 
