@@ -18,7 +18,45 @@
       "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
     }
   },
+  "services": {
+    "change_settings": {
+      "name": "Change settings",
+      "description": "Changes the setting for the water softener.",
+      "fields": {
+        "parameter": {
+          "name": "Parameter name",
+          "description": "The name of the parameter, see xxx for available parameter"
+        },
+        "value": {
+          "name": "Value",
+          "description": "New value to be set"
+        }
+      }
+    },
+    "get_device_salt_measurements": {
+      "name": "Retrieve Salt measurements",
+      "description": "Returns a list with the salt measurement for each day, since startup"
+    },
+    "get_device_water_measurements": {
+      "name": "Retrieve Water measurements",
+      "description": "Returns a list with the water measurement for each day, since startup"
+    },
+    "regenerate": {
+      "name": "Manual regeneration",
+      "description": "Starts a manual regeneration"
+    }
+  },
   "entity": {
+    "select": {
+      "mode": {
+        "name": "Operation Mode"
+      }
+    },
+    "binary_sensor": {
+      "has_error": {
+        "name": "Has error"
+      }
+    },
     "sensor": {
       "next_regeneration": {
         "name": "Next Regeneration"

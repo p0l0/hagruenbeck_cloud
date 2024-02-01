@@ -1,0 +1,55 @@
+{
+  "entity": {
+    "select": {
+      "mode": {
+        "default": "mdi:cog-clockwise"
+      }
+    },
+    "binary_sensor": {
+      "has_error": {
+        "default": "mdi:alert"
+      }
+    },
+    "sensor": {
+      "next_regeneration": {
+        "default": "mdi:water-sync"
+      },
+      "startup": {
+        "default": "mdi:calendar-start"
+      },
+      "last_service": {
+        "default": "mdi:calendar-check"
+      },
+      "raw_water": {
+        "default": "mdi:water"
+      },
+      "soft_water": {
+        "default": "mdi:water-outline"
+      },
+      "soft_water_quantity": {
+        "default": "mdi:water-circle"
+      },
+      "regeneration_counter": {
+        "default": "mdi:history"
+      },
+      "current_flow_rate": {
+        "default": "mdi:waves"
+      },
+      "remaining_capacity_volume": {
+        "default": "mdi:cup-water"
+      },
+      "remaining_capacity_percentage": {
+        "default": "mdi:water-percent"
+      },
+      "salt_range": {
+        "default": "mdi:calendar-range"
+      },
+      "salt_consumption": {
+        "default": "mdi:grain"
+      },
+      "next_service": {
+        "default": "mdi:calendar-alert"
+      }
+    }
+  }
+}
