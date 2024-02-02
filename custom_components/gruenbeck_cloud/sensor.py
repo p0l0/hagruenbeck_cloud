@@ -1,11 +1,12 @@
 """Platform for Grünbeck Cloud sensor."""
 from __future__ import annotations
 
-from collections.abc import Callable
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from datetime import date, datetime
 from decimal import Decimal
 import logging
+from typing import Any
 
 from pygruenbeck_cloud.models import Device
 
@@ -34,6 +35,7 @@ class GruenbeckCloudEntityDescription(SensorEntityDescription):
     """Describes a Grünbeck Cloud entity."""
 
     exists_fn: Callable[[Device], bool] = lambda _: True
+    extra_attr_fn: Callable[[Device], Mapping[str, Any] | None] = lambda _: None
     value_fn: Callable[[Device], datetime | StateType]
 
 
@@ -79,39 +81,42 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         native_unit_of_measurement=UnitOfVolume.LITERS,
         device_class=SensorDeviceClass.WATER,
         state_class=SensorStateClass.TOTAL_INCREASING,
-        value_fn=lambda device: device.soft_water_quantity,
+        value_fn=lambda device: device.realtime.soft_water_quantity,
+        extra_attr_fn=lambda device: {
+            "daily_usage": [daily.to_dict() for daily in device.water]  # type: ignore[union-attr]  # noqa: E501
+        },
     ),
     GruenbeckCloudEntityDescription(
         key="regeneration_counter",
         translation_key="regeneration_counter",
         entity_category=EntityCategory.DIAGNOSTIC,
-        value_fn=lambda device: device.regeneration_counter,
+        value_fn=lambda device: device.realtime.regeneration_counter,
     ),
     GruenbeckCloudEntityDescription(
         key="current_flow_rate",
         translation_key="current_flow_rate",
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.VOLUME,
-        value_fn=lambda device: device.current_flow_rate,
+        value_fn=lambda device: device.realtime.current_flow_rate,
     ),
     GruenbeckCloudEntityDescription(
         key="remaining_capacity_volume",
         translation_key="remaining_capacity_volume",
         native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
         device_class=SensorDeviceClass.VOLUME,
-        value_fn=lambda device: device.remaining_capacity_volume,
+        value_fn=lambda device: device.realtime.remaining_capacity_volume,
     ),
     GruenbeckCloudEntityDescription(
         key="remaining_capacity_percentage",
         translation_key="remaining_capacity_percentage",
         native_unit_of_measurement=PERCENTAGE,
-        value_fn=lambda device: device.remaining_capacity_percentage,
+        value_fn=lambda device: device.realtime.remaining_capacity_percentage,
     ),
     GruenbeckCloudEntityDescription(
         key="salt_range",
         translation_key="salt_range",
         native_unit_of_measurement=DEVICE_CLASS_DAYS,
-        value_fn=lambda device: device.salt_range,
+        value_fn=lambda device: device.realtime.salt_range,
     ),
     GruenbeckCloudEntityDescription(
         key="salt_consumption",
@@ -120,15 +125,28 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         device_class=SensorDeviceClass.WEIGHT,
         # TOTAL_INCREASING and WEIGHT is not possible
         state_class=SensorStateClass.MEASUREMENT,
-        value_fn=lambda device: device.salt_consumption,
+        value_fn=lambda device: device.realtime.salt_consumption,
+        extra_attr_fn=lambda device: {
+            "daily_usage": [daily.to_dict() for daily in device.salt]  # type: ignore[union-attr]  # noqa: E501
+        },
     ),
     GruenbeckCloudEntityDescription(
         key="next_service",
         translation_key="next_service",
         native_unit_of_measurement=DEVICE_CLASS_DAYS,
         entity_category=EntityCategory.DIAGNOSTIC,
-        value_fn=lambda device: device.next_service,
+        value_fn=lambda device: device.realtime.next_service,
     ),
+    # GruenbeckCloudEntityDescription(
+    #     key="mremregstep",
+    #     translation_key="mremregstep",
+    #     value_fn=lambda device: device.realtime.mremregstep,
+    # ),
+    # GruenbeckCloudEntityDescription(
+    #     key="mregstatus",
+    #     translation_key="mregstatus",
+    #     value_fn=lambda device: device.realtime.mregstatus,
+    # ),
 )
 
 
@@ -165,3 +183,8 @@ class GruenbeckCloudSensorEntity(GruenbeckCloudEntity, SensorEntity):
     def native_value(self) -> StateType | date | datetime | Decimal:
         """Return the state of our sensor."""
         return self.entity_description.value_fn(self.coordinator.data)
+
+    @property
+    def extra_state_attributes(self):
+        """Return the state attributes."""
+        return self.entity_description.extra_attr_fn(self.coordinator.data)
