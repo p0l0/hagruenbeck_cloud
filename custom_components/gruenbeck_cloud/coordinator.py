@@ -188,8 +188,6 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
             await self.api.get_device_infos()
             device = await self.api.get_device_infos_parameters()
 
-            self.logger.debug(f"Got following Device after update: {device}")
-
             # Start listening to websocket at first time
             if not self.api.connected and not self.unsub:
                 self._listen_websocket()
