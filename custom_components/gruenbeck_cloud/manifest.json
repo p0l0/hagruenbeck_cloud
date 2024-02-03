@@ -10,9 +10,9 @@
   "iot_class": "cloud_push",
   "issue_tracker": "https://github.com/p0l0/hagruenbeck_cloud/issues",
   "requirements": [
-    "git+https://github.com/p0l0/pygruenbeck_cloud.git@next#pygruenbeck_cloud==0.1.0"
+    "pygruenbeck_cloud==0.1.0"
   ],
   "ssdp": [],
-  "version": "0.1.0-beta",
+  "version": "0.1.0",
   "zeroconf": []
 }
