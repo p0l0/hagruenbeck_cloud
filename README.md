@@ -37,12 +37,12 @@ Custom Component to integrate Grünbeck Cloud based Water softeners into [Home A
 
 **This integration provides following services.**
 
-| Service                       | Description                                                           | Fields                                                                                                    |
-|-------------------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| change_settings               | Changes the setting for the water softener.                           | `parameter`: The name of the parameter, see xxx for available parameter.<br/>`value`: New value to be set |
-| get_device_salt_measurements  | Returns a list with the salt measurement for each day, since startup  | None                                                                                                      |
-| get_device_water_measurements | Returns a list with the water measurement for each day, since startup | None                                                                                                      |
-| regenerate                    | Starts a manual regeneration                                          | None                                                                                                      |
+| Service                       | Description                                                           | Fields                                                                                                                                                                                                                      |
+|-------------------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| change_settings               | Changes the setting for the water softener.                           | `parameter`: The name of the parameter, check [pygruenbeck_cloud](https://github.com/p0l0/pygruenbeck_cloud?tab=readme-ov-file#available-configuration-parameter) for available parameter.<br/>`value`: New value to be set |
+| get_device_salt_measurements  | Returns a list with the salt measurement for each day, since startup  | None                                                                                                                                                                                                                        |
+| get_device_water_measurements | Returns a list with the water measurement for each day, since startup | None                                                                                                                                                                                                                        |
+| regenerate                    | Starts a manual regeneration                                          | None                                                                                                                                                                                                                        |
 
 
 # Installation

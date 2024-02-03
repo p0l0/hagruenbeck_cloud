@@ -25,7 +25,7 @@
       "fields": {
         "parameter": {
           "name": "Paramentername",
-          "description": "Der name des Parameters, siehe xxx für verfügbare Parameter"
+          "description": "Der name des Parameters, siehe https://github.com/p0l0/pygruenbeck_cloud?tab=readme-ov-file#available-configuration-parameter für verfügbare Parameter"
         },
         "value": {
           "name": "Wert",
