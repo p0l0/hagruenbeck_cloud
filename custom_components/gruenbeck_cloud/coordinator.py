@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+from typing import Any
 
 from pygruenbeck_cloud import PyGruenbeckCloud
 from pygruenbeck_cloud.exceptions import (
@@ -13,11 +14,24 @@ from pygruenbeck_cloud.models import Device
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME, EVENT_HOMEASSISTANT_STOP
-from homeassistant.core import CALLBACK_TYPE, Event, HomeAssistant, callback
+from homeassistant.core import (
+    CALLBACK_TYPE,
+    Event,
+    HomeAssistant,
+    ServiceCall,
+    ServiceResponse,
+    callback,
+)
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
-from .const import CONF_DEVICE_ID, DOMAIN, UPDATE_INTERVAL
+from .const import (
+    CONF_DEVICE_ID,
+    DOMAIN,
+    SERVICE_PARAM_PARAMETER,
+    SERVICE_PARAM_VALUE,
+    UPDATE_INTERVAL,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -56,7 +70,7 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
             """Listen for state changes."""
             try:
                 await self.api.connect()
-            except PyGruenbeckCloudError as err:
+            except (PyGruenbeckCloudError, PyGruenbeckCloudResponseStatusError) as err:
                 self.logger.error(err)
                 if self.unsub:
                     self.unsub()
@@ -97,6 +111,58 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
             self.hass, listen(), "gruenbeck-cloud-listen"
         )
 
+    async def service_get_device_salt_measurements(
+        self, call: ServiceCall
+    ) -> ServiceResponse:
+        """Service to get Salt measurements."""
+        device = await self.api.get_device_salt_measurements()
+        if device.salt is None:
+            return {"entries": []}
+
+        return {
+            "entries": [
+                {
+                    "date": item.date,
+                    "value": item.value,
+                }
+                for item in device.salt
+            ],
+        }
+
+    async def service_get_device_water_measurements(
+        self, call: ServiceCall
+    ) -> ServiceResponse:
+        """Service to get Water measurements."""
+        device = await self.api.get_device_water_measurements()
+        if device.water is None:
+            return {"entries": []}
+
+        return {
+            "entries": [
+                {
+                    "date": item.date,
+                    "value": item.value,
+                }
+                for item in device.water
+            ],
+        }
+
+    async def service_regenerate(self, call: ServiceCall) -> None:
+        """Service to start manual regeneration."""
+        await self.api.regenerate()
+
+    async def service_change_settings(self, call: ServiceCall) -> None:
+        """Service for update device settings."""
+        data = {
+            call.data[SERVICE_PARAM_PARAMETER]: call.data[SERVICE_PARAM_VALUE],
+        }
+
+        await self.update_device_infos_parameters(data)
+
+    async def update_device_infos_parameters(self, data: dict[str, Any]) -> None:
+        """Update Device parameters."""
+        self.data = await self.api.update_device_infos_parameters(data)
+
     @callback
     def async_set_updated_data(self, data: Device) -> None:
         """Manually update data from WebSocket, avoid stopping refresh interval."""
@@ -115,18 +181,25 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
             "Regularly updated %s data",
             self.name,
         )
+
         try:
             if not self.api.device:
                 await self.api.set_device_from_id(self._device_id)
-            device = await self.api.get_device_infos()
-        except (Exception, IndexError, KeyError) as err:
+            await self.api.get_device_infos()
+            device = await self.api.get_device_infos_parameters()
+
+            # Start listening to websocket at first time
+            if not self.api.connected and not self.unsub:
+                self._listen_websocket()
+            else:
+                await self.api.enter_sd()
+                await self.api.refresh_sd()
+
+            return device
+        except (
+            Exception,
+            IndexError,
+            KeyError,
+            PyGruenbeckCloudResponseStatusError,
+        ) as err:
             raise UpdateFailed(f"Unable to get data from API: {err}") from err
-
-        # Start listening to websocket at first time
-        if not self.api.connected and not self.unsub:
-            self._listen_websocket()
-        else:
-            await self.api.enter_sd()
-            await self.api.refresh_sd()
-
-        return device

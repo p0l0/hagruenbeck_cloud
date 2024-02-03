@@ -1,0 +1,15 @@
+change_settings:
+  fields:
+    parameter:
+      required: true
+      example: "mode"
+      selector:
+        text:
+    value:
+      required: true
+      example: 2
+      selector:
+        text:
+get_device_salt_measurements:
+get_device_water_measurements:
+regenerate:

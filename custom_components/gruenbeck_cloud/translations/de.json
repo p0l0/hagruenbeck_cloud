@@ -18,7 +18,45 @@
       }
     }
   },
+  "services": {
+    "change_settings": {
+      "name": "Setzen von Einstellungen",
+      "description": "Ändert die Einstellung an der Enthärtungsanlage.",
+      "fields": {
+        "parameter": {
+          "name": "Paramentername",
+          "description": "Der name des Parameters, siehe xxx für verfügbare Parameter"
+        },
+        "value": {
+          "name": "Wert",
+          "description": "Neuer Wert, der eingestellt werden soll"
+        }
+      }
+    },
+    "get_device_salt_measurements": {
+      "name": "Abrufen der Salzverbrauchshistorie",
+      "description": "Gibt eine Liste mit der Salzverbrauchshistorie für jeden Tag seit dem Start zurück."
+    },
+    "get_device_water_measurements": {
+      "name": "Abrufen der Wasserverbrauchshistorie",
+      "description": "Gibt eine Liste mit der Wasserverbrauchshistorie für jeden Tag seit dem Start zurück."
+    },
+    "regenerate": {
+      "name": "Manuelle Regeneration",
+      "description": "Startet die manuelle Regeneration"
+    }
+  },
   "entity": {
+    "select": {
+      "mode": {
+        "name": "Arbeitsweise"
+      }
+    },
+    "binary_sensor": {
+      "has_error": {
+        "name": "Fehler"
+      }
+    },
     "sensor": {
       "next_regeneration": {
         "name": "Nächste Regeneration"
