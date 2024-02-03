@@ -75,7 +75,7 @@ To get the real water consumption (at least for most people in Germany), you nee
 ```yaml
 template:
   - sensor:
-      - name: "Current Water Usage"
+      - name: "Total Water Usage"
         unit_of_measurement: L
         icon: mdi:water-pump
         state_class: total_increasing
