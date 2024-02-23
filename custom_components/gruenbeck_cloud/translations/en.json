@@ -50,6 +50,39 @@
     "select": {
       "mode": {
         "name": "Operation Mode"
+      },
+      "mode_individual_monday": {
+        "name": "Individual Operation Mode Monday"
+      },
+      "mode_individual_tuesday": {
+        "name": "Individual Operation Mode Tuesday"
+      },
+      "mode_individual_wednesday": {
+        "name": "Individual Operation Mode Wednesday"
+      },
+      "mode_individual_thursday": {
+        "name": "Individual Operation Mode Thursday"
+      },
+      "mode_individual_friday": {
+        "name": "Individual Operation Mode Friday"
+      },
+      "mode_individual_saturday": {
+        "name": "Individual Operation Mode Saturday"
+      },
+      "mode_individual_sunday": {
+        "name": "Individual Operation Mode Sunday"
+      },
+      "regeneration_mode": {
+        "name": "Regeneration Mode"
+      },
+      "water_hardness_unit": {
+        "name": "Water Hardness Unit"
+      },
+      "language": {
+        "name": "Language"
+      },
+      "led_ring_mode": {
+        "name": "LED Ring Mode"
       }
     },
     "binary_sensor": {
