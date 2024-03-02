@@ -109,17 +109,29 @@
       "soft_water_quantity": {
         "name": "Soft Water Quantity"
       },
+      "soft_water_quantity_2": {
+        "name": "Soft Water Quantity Exchanger 2"
+      },
       "regeneration_counter": {
         "name": "Regeneration Counter"
       },
       "current_flow_rate": {
         "name": "Current Flow Rate"
       },
+      "current_flow_rate_2": {
+        "name": "Current Flow Rate Exchanger 2"
+      },
       "remaining_capacity_volume": {
         "name": "Remaining Capacity m³"
       },
+      "remaining_capacity_volume_2": {
+        "name": "Remaining Capacity Exchanger 2 m³"
+      },
       "remaining_capacity_percentage": {
         "name": "Remaining Capacity %"
+      },
+      "remaining_capacity_percentage_2": {
+        "name": "Remaining Capacity Exchanger 2 %"
       },
       "salt_range": {
         "name": "Salt Range"
@@ -129,6 +141,60 @@
       },
       "next_service": {
         "name": "Next Service"
+      },
+      "regeneration_remaining_time": {
+        "name": "Remaining amount / time of current regeneration step"
+      },
+      "regeneration_step": {
+        "name": "Regeneration step"
+      },
+      "make_up_water_volume": {
+        "name": "Make-up water volume"
+      },
+      "exhausted_percentage": {
+        "name": "Adsorber exhausted percentage"
+      },
+      "actual_value_soft_water_hardness": {
+        "name": "Actual value soft water hardness"
+      },
+      "capacity_figure": {
+        "name": "Capacity figure"
+      },
+      "flow_rate_peak_value": {
+        "name": "Flow rate peak value"
+      },
+      "exchanger_peak_value": {
+        "name": "Exchanger peak value"
+      },
+      "exchanger_peak_value_2": {
+        "name": "Exchanger 2 peak value"
+      },
+      "last_regeneration_exchanger": {
+        "name": "Last regeneration Exchanger"
+      },
+      "last_regeneration_exchanger_2": {
+        "name": "Last regeneration Exchanger 2"
+      },
+      "regeneration_flow_rate_exchanger": {
+        "name": "Regeneration flow rate Exchanger"
+      },
+      "regeneration_flow_rate_exchanger_2": {
+        "name": "Regeneration flow rate Exchanger 2"
+      },
+      "blending_flow_rate": {
+        "name": "Blending flow rate"
+      },
+      "step_indication_regeneration_valve": {
+        "name": "Step indication regeneration valve 1"
+      },
+      "step_indication_regeneration_valve_2": {
+        "name": "Step indication regeneration valve 2"
+      },
+      "current_chlorine": {
+        "name": "Current chlorine"
+      },
+      "remaining_amount_of_water": {
+        "name": "Adsorber remaining amount of water"
       }
     }
   }

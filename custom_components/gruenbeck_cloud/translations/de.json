@@ -50,6 +50,38 @@
     "select": {
       "mode": {
         "name": "Arbeitsweise"
+      },
+      "mode_individual_monday": {
+        "name": "Arbeitsweise Montag"
+      },
+      "mode_individual_tuesday": {
+        "name": "Arbeitsweise Dienstag"
+      },
+      "mode_individual_wednesday": {
+        "name": "Arbeitsweise Mittwoch"
+      },
+      "mode_individual_thursday": {
+        "name": "Arbeitsweise Donnerstag"
+      },
+      "mode_individual_friday": {
+        "name": "Arbeitsweise Freitag"
+      },
+      "mode_individual_saturday": {
+        "name": "Arbeitsweise Samstag"
+      },
+      "mode_individual_sunday": {
+        "name": "Arbeitsweise Sonntag"
+      },"regeneration_mode": {
+        "name": "Regenerationsmodus"
+      },
+      "water_hardness_unit": {
+        "name": "Einheit der Wasserhärte"
+      },
+      "language": {
+        "name": "Sprache"
+      },
+      "led_ring_mode": {
+        "name": "LED Ring Modus"
       }
     },
     "binary_sensor": {
@@ -76,17 +108,29 @@
       "soft_water_quantity": {
         "name": "Weichwasserverbrauch"
       },
+      "soft_water_quantity_2": {
+        "name": "Weichwasserverbrauch Austauscher 2"
+      },
       "regeneration_counter": {
         "name": "Anzahl Regenerationen"
       },
       "current_flow_rate": {
         "name": "Aktueller Durchfluss"
       },
+      "current_flow_rate_2": {
+        "name": "Aktueller Durchfluss Austauscher 2"
+      },
       "remaining_capacity_volume": {
         "name": "Restkapazität m³"
       },
+      "remaining_capacity_volume_2": {
+        "name": "Restkapazität Austauscher 2 m³"
+      },
       "remaining_capacity_percentage": {
         "name": "Restkapazität %"
+      },
+      "remaining_capacity_percentage_2": {
+        "name": "Restkapazität Austauscher 2 %"
       },
       "salt_range": {
         "name": "Salzvorrat"
@@ -96,6 +140,60 @@
       },
       "next_service": {
         "name": "Nächste Wartung"
+      },
+      "regeneration_remaining_time": {
+        "name": "Verbleibende Menge / Zeit der aktuellen Regenerationsstufe"
+      },
+      "regeneration_step": {
+        "name": "Regenerationsschritt"
+      },
+      "make_up_water_volume": {
+        "name": "Nachspeisewassermenge"
+      },
+      "exhausted_percentage": {
+        "name": "Adsorber erschöpft in Prozent"
+      },
+      "actual_value_soft_water_hardness": {
+        "name": "Tatsächlicher Wert der Weichwasserhärte"
+      },
+      "capacity_figure": {
+        "name": "Kapazität"
+      },
+      "flow_rate_peak_value": {
+        "name": "Spitzenwert der Durchflussmenge"
+      },
+      "exchanger_peak_value": {
+        "name": "Spitzenwert des Austauschers"
+      },
+      "exchanger_peak_value_2": {
+        "name": "Spitzenwert des Austauschers 2"
+      },
+      "last_regeneration_exchanger": {
+        "name": "Letzte Regeneration des Austauschers"
+      },
+      "last_regeneration_exchanger_2": {
+        "name": "Letzte Regeneration des Austauschers 2"
+      },
+      "regeneration_flow_rate_exchanger": {
+        "name": "Regenerationsdurchsatz Austauscher"
+      },
+      "regeneration_flow_rate_exchanger_2": {
+        "name": "Regenerationsdurchsatz Austauscher 2"
+      },
+      "blending_flow_rate": {
+        "name": "Mischungsdurchsatz"
+      },
+      "step_indication_regeneration_valve": {
+        "name": "Stufenanzeige Regenerationsventil 1"
+      },
+      "step_indication_regeneration_valve_2": {
+        "name": "Stufenanzeige Regenerationsventil 2"
+      },
+      "current_chlorine": {
+        "name": "Aktueller Chlorwert"
+      },
+      "remaining_amount_of_water": {
+        "name": "Adsorber Restwassermenge"
       }
     }
   }
