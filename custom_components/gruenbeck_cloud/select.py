@@ -6,7 +6,6 @@ from dataclasses import dataclass
 import logging
 
 from pygruenbeck_cloud.const import (
-    PARAMETER_LANGUAGES,
     PARAMETER_LED_MODES,
     PARAMETER_OPERATION_MODES,
     PARAMETER_REGENERATION_MODES,
@@ -66,18 +65,19 @@ SELECTS: tuple[GruenbeckCloudEntityDescription, ...] = (
             ]
         },
     ),
-    GruenbeckCloudEntityDescription(
-        key="language",
-        translation_key="language",
-        options=list(PARAMETER_LANGUAGES.values()),
-        entity_category=EntityCategory.CONFIG,
-        value_fn=lambda device: PARAMETER_LANGUAGES[device.parameters.language],  # type: ignore[index]  # noqa: E501
-        update_fn=lambda device, option: {
-            "language": list(PARAMETER_LANGUAGES.keys())[
-                list(PARAMETER_LANGUAGES.values()).index(option)
-            ]
-        },
-    ),
+    # We get a 500 error from API if we try to change it
+    # GruenbeckCloudEntityDescription(
+    #     key="language",
+    #     translation_key="language",
+    #     options=list(PARAMETER_LANGUAGES.values()),
+    #     entity_category=EntityCategory.CONFIG,
+    #     value_fn=lambda device: PARAMETER_LANGUAGES[device.parameters.language],  # type: ignore[index]  # noqa: E501
+    #     update_fn=lambda device, option: {
+    #         "language": list(PARAMETER_LANGUAGES.keys())[
+    #             list(PARAMETER_LANGUAGES.values()).index(option)
+    #         ]
+    #     },
+    # ),
     GruenbeckCloudEntityDescription(
         key="mode",
         translation_key="mode",
