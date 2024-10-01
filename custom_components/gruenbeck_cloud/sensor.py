@@ -117,7 +117,7 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
     GruenbeckCloudEntityDescription(
         key="current_flow_rate",
         translation_key="current_flow_rate",
-        native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
+        native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
         device_class=SensorDeviceClass.VOLUME,
         value_fn=lambda device: device.realtime.current_flow_rate,
     ),
@@ -126,7 +126,7 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         key="current_flow_rate_2",
         translation_key="current_flow_rate_2",
         entity_registry_enabled_default=False,
-        native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
+        native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOU,
         device_class=SensorDeviceClass.VOLUME,
         value_fn=lambda device: device.realtime.current_flow_rate_2,
     ),
