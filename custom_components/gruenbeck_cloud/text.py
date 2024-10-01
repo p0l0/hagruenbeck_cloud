@@ -72,13 +72,13 @@ async def async_setup_entry(
     """Set up the select platform."""
     coordinator: GruenbeckCloudCoordinator = hass.data[DOMAIN][config_entry.entry_id]
     add_entities(
-        GruenbeckCloudNumberEntity(coordinator, description)
+        GruenbeckCloudTextEntity(coordinator, description)
         for description in TEXTS
         if description.exists_fn(coordinator.data)
     )
 
 
-class GruenbeckCloudNumberEntity(GruenbeckCloudEntity, TextEntity):
+class GruenbeckCloudTextEntity(GruenbeckCloudEntity, TextEntity):
     """Define a Grünbeck Cloud Text entity."""
 
     entity_description: GruenbeckCloudEntityDescription
