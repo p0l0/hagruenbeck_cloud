@@ -101,6 +101,110 @@
         "name": "Installer Email"
       }
     },
+    "number": {
+      "raw_water_hardness": {
+        "name": "raw_water_hardness"
+      },
+      "soft_water_hardness": {
+        "name": "soft_water_hardness"
+      },
+      "maintenance_interval": {
+        "name": "Maintenance Interval"
+      },
+      "led_ring_brightness": {
+        "name": "LED ring Brightness"
+      },
+      "residual_capacity_limit": {
+        "name": "Residual capacity limit value"
+      },
+      "current_setpoint": {
+        "name": "Current setpoint"
+      },
+      "charge": {
+        "name": "Charge"
+      },
+      "interval_forced_regeneration": {
+        "name": "Interval of forced regeneration"
+      },
+      "end_frequency_regeneration_valve": {
+        "name": "End frequency regeneration valve"
+      },
+      "end_frequency_regeneration_valve_2": {
+        "name": "End frequency regeneration valve 2"
+      },
+      "end_frequency_blending_valve": {
+        "name": "End frequency blending valve"
+      },
+      "treatment_volume": {
+        "name": "Treatment volume"
+      },
+      "soft_water_meter_pulse_rate": {
+        "name": "Soft water meter pulse rate"
+      },
+      "blending_water_meter_pulse_rate": {
+        "name": "Blending water meter pulse rate"
+      },
+      "regeneration_water_meter_pulse_rate": {
+        "name": "Regeneration water meter pulse rate"
+      },
+      "capacity_figure_monday": {
+        "name": "Capacity figure Monday"
+      },
+      "capacity_figure_tuesday": {
+        "name": "Capacity figure Tuesday"
+      },
+      "capacity_figure_wednesday": {
+        "name": "Capacity figure Wednesday"
+      },
+      "capacity_figure_thursday": {
+        "name": "Capacity figure Thursday"
+      },
+      "capacity_figure_friday": {
+        "name": "Capacity figure Friday"
+      },
+      "capacity_figure_saturday": {
+        "name": "Capacity figure Saturday"
+      },
+      "capacity_figure_sunday": {
+        "name": "Capacity figure Sunday"
+      },
+      "nominal_flow_rate": {
+        "name": "Nominal flow rate"
+      },
+      "regeneration_monitoring_time": {
+        "name": "Regeneration monitoring time"
+      },
+      "salting_monitoring_time": {
+        "name": "Salting monitoring time"
+      },
+      "slow_rinse": {
+        "name": "Slow rinse"
+      },
+      "backwash": {
+        "name": "Backwash"
+      },
+      "washing_out": {
+        "name": "Washing out"
+      },
+      "minimum_filling_volume_smallest_cap": {
+        "name": "Minimum filling volume smallest cap"
+      },
+      "maximum_filling_volume_smallest_cap": {
+        "name": "Maximum filling volume smallest cap"
+      },
+      "minimum_filling_volume_largest_cap": {
+        "name": "Minimum filling volume largest cap"
+      },
+      "maximum_filling_volume_largest_cap": {
+        "name": "Maximum filling volume largest cap"
+      },
+      "longest_switch_on_time_chlorine_cell": {
+        "name": "Longest switch-on time chlorine cell"
+      },
+      "maximum_remaining_time_regeneration": {
+        "name": "Maximum remaining time regeneration"
+      }
+    },
     "sensor": {
       "next_regeneration": {
         "name": "Next Regeneration"
