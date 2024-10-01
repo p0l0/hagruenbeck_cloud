@@ -90,6 +90,17 @@
         "name": "Has error"
       }
     },
+    "text": {
+      "installer_name": {
+        "name": "Installer Name"
+      },
+      "installer_phone": {
+        "name": "Installer Phone"
+      },
+      "installer_email": {
+        "name": "Installer Email"
+      }
+  },
     "sensor": {
       "next_regeneration": {
         "name": "Next Regeneration"

@@ -89,6 +89,17 @@
         "name": "Fehler"
       }
     },
+    "text": {
+      "installer_name": {
+        "name": "Installateur Name"
+      },
+      "installer_phone": {
+        "name": "Installateur Telefon"
+      },
+      "installer_email": {
+        "name": "Installateur Email"
+      }
+  },
     "sensor": {
       "next_regeneration": {
         "name": "Nächste Regeneration"
