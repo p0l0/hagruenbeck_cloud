@@ -6,6 +6,7 @@ from dataclasses import dataclass
 import logging
 
 from pygruenbeck_cloud.const import (
+    PARAMETER_LANGUAGES,
     PARAMETER_LED_MODES,
     PARAMETER_OPERATION_MODES,
     PARAMETER_REGENERATION_MODES,
@@ -65,19 +66,6 @@ SELECTS: tuple[GruenbeckCloudEntityDescription, ...] = (
             ]
         },
     ),
-    # We get a 500 error from API if we try to change it
-    # GruenbeckCloudEntityDescription(
-    #     key="language",
-    #     translation_key="language",
-    #     options=list(PARAMETER_LANGUAGES.values()),
-    #     entity_category=EntityCategory.CONFIG,
-    #     value_fn=lambda device: PARAMETER_LANGUAGES[device.parameters.language],  # type: ignore[index]  # noqa: E501
-    #     update_fn=lambda device, option: {
-    #         "language": list(PARAMETER_LANGUAGES.keys())[
-    #             list(PARAMETER_LANGUAGES.values()).index(option)
-    #         ]
-    #     },
-    # ),
     GruenbeckCloudEntityDescription(
         key="mode",
         translation_key="mode",
@@ -89,7 +77,11 @@ SELECTS: tuple[GruenbeckCloudEntityDescription, ...] = (
             ]
         },
     ),
-    # Disabled Entities
+    #################################################################
+    #                                                               #
+    # Disabled Entities - Need to be activated manually in Frontend #
+    #                                                               #
+    #################################################################
     GruenbeckCloudEntityDescription(
         key="led_ring_mode",
         translation_key="led_ring_mode",
@@ -100,6 +92,20 @@ SELECTS: tuple[GruenbeckCloudEntityDescription, ...] = (
         update_fn=lambda device, option: {
             "led_ring_mode": list(PARAMETER_LED_MODES.keys())[
                 list(PARAMETER_LED_MODES.values()).index(option)
+            ]
+        },
+    ),
+    GruenbeckCloudEntityDescription(
+        key="language",
+        translation_key="language",
+        options=list(PARAMETER_LANGUAGES.values()),
+        entity_category=EntityCategory.CONFIG,
+        entity_registry_enabled_default=False,
+        value_fn=lambda device: PARAMETER_LANGUAGES[device.parameters.language],  # type: ignore[index]  # noqa: E501
+        # We get a 500 error from API if we try to change it
+        update_fn=lambda device, option: {
+            "language": list(PARAMETER_LANGUAGES.keys())[
+                list(PARAMETER_LANGUAGES.values()).index(option)
             ]
         },
     ),

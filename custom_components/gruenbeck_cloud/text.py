@@ -33,6 +33,11 @@ class GruenbeckCloudEntityDescription(TextEntityDescription):
 
 
 TEXTS: tuple[GruenbeckCloudEntityDescription, ...] = (
+    #################################################################
+    #                                                               #
+    # Disabled Entities - Need to be activated manually in Frontend #
+    #                                                               #
+    #################################################################
     # Installer information
     GruenbeckCloudEntityDescription(
         key="installer_name",

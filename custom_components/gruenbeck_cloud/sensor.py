@@ -23,6 +23,7 @@ from homeassistant.const import (
     EntityCategory,
     UnitOfElectricCurrent,
     UnitOfMass,
+    UnitOfTime,
     UnitOfVolume,
     UnitOfVolumeFlowRate,
 )
@@ -30,7 +31,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
 
-from .const import DEVICE_CLASS_DAYS, DEVICE_CLASS_DH, DOMAIN
+from .const import DOMAIN, UNIT_OF_DH, UNIT_OF_L_HOUR, UNIT_OF_M3_X_DH
 from .coordinator import GruenbeckCloudCoordinator
 from .models import GruenbeckCloudEntity
 
@@ -73,14 +74,14 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
     GruenbeckCloudEntityDescription(
         key="raw_water",
         translation_key="raw_water",
-        native_unit_of_measurement=DEVICE_CLASS_DH,
+        native_unit_of_measurement=UNIT_OF_DH,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.raw_water,
     ),
     GruenbeckCloudEntityDescription(
         key="soft_water",
         translation_key="soft_water",
-        native_unit_of_measurement=DEVICE_CLASS_DH,
+        native_unit_of_measurement=UNIT_OF_DH,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.soft_water,
     ),
@@ -95,16 +96,6 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         extra_attr_fn=lambda device: {
             "daily_usage": [daily.to_dict() for daily in device.water]  # type: ignore[union-attr]  # noqa: E501
         },
-    ),
-    # Soft water exchanger 2 [l]
-    GruenbeckCloudEntityDescription(
-        key="soft_water_quantity_2",
-        translation_key="soft_water_quantity_2",
-        entity_registry_enabled_default=False,
-        native_unit_of_measurement=UnitOfVolume.LITERS,
-        device_class=SensorDeviceClass.WATER,
-        state_class=SensorStateClass.TOTAL_INCREASING,
-        value_fn=lambda device: device.realtime.soft_water_quantity_2,
     ),
     # Regeneration counter
     GruenbeckCloudEntityDescription(
@@ -121,15 +112,6 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         value_fn=lambda device: device.realtime.current_flow_rate,
     ),
-    # Flow rate exchanger 2 [m³/h]
-    GruenbeckCloudEntityDescription(
-        key="current_flow_rate_2",
-        translation_key="current_flow_rate_2",
-        entity_registry_enabled_default=False,
-        native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
-        device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
-        value_fn=lambda device: device.realtime.current_flow_rate_2,
-    ),
     # Soft water Exchanger 1 [m³]
     GruenbeckCloudEntityDescription(
         key="remaining_capacity_volume",
@@ -138,15 +120,6 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         device_class=SensorDeviceClass.VOLUME,
         value_fn=lambda device: device.realtime.remaining_capacity_volume,
     ),
-    # Soft water Exchanger 2 [m³]
-    GruenbeckCloudEntityDescription(
-        key="remaining_capacity_volume_2",
-        translation_key="remaining_capacity_volume_2",
-        entity_registry_enabled_default=False,
-        native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
-        device_class=SensorDeviceClass.VOLUME,
-        value_fn=lambda device: device.realtime.remaining_capacity_volume_2,
-    ),
     # Residual capacity Exchanger 1 [%]
     GruenbeckCloudEntityDescription(
         key="remaining_capacity_percentage",
@@ -154,19 +127,12 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         native_unit_of_measurement=PERCENTAGE,
         value_fn=lambda device: device.realtime.remaining_capacity_percentage,
     ),
-    # Residual capacity Exchanger 2 [%]
-    GruenbeckCloudEntityDescription(
-        key="remaining_capacity_percentage_2",
-        translation_key="remaining_capacity_percentage_2",
-        entity_registry_enabled_default=False,
-        native_unit_of_measurement=PERCENTAGE,
-        value_fn=lambda device: device.realtime.remaining_capacity_percentage_2,
-    ),
     # Salt-reach [days]
     GruenbeckCloudEntityDescription(
         key="salt_range",
         translation_key="salt_range",
-        native_unit_of_measurement=DEVICE_CLASS_DAYS,
+        native_unit_of_measurement=UnitOfTime.DAYS,
+        # device_class=SensorDeviceClass.DURATION,
         value_fn=lambda device: device.realtime.salt_range,
     ),
     # Salt consumption [kg]
@@ -186,7 +152,8 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
     GruenbeckCloudEntityDescription(
         key="next_service",
         translation_key="next_service",
-        native_unit_of_measurement=DEVICE_CLASS_DAYS,
+        native_unit_of_measurement=UnitOfTime.DAYS,
+        # device_class=SensorDeviceClass.DURATION,
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda device: device.realtime.next_service,
     ),
@@ -205,6 +172,47 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         ]
         if device.realtime.regeneration_step in PARAMETER_REGENERATION_STEP
         else device.realtime.regeneration_step,
+    ),
+    #################################################################
+    #                                                               #
+    # Disabled Entities - Need to be activated manually in Frontend #
+    #                                                               #
+    #################################################################
+    # Soft water exchanger 2 [l]
+    GruenbeckCloudEntityDescription(
+        key="soft_water_quantity_2",
+        translation_key="soft_water_quantity_2",
+        entity_registry_enabled_default=False,
+        native_unit_of_measurement=UnitOfVolume.LITERS,
+        device_class=SensorDeviceClass.WATER,
+        state_class=SensorStateClass.TOTAL_INCREASING,
+        value_fn=lambda device: device.realtime.soft_water_quantity_2,
+    ),
+    # Flow rate exchanger 2 [m³/h]
+    GruenbeckCloudEntityDescription(
+        key="current_flow_rate_2",
+        translation_key="current_flow_rate_2",
+        entity_registry_enabled_default=False,
+        native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
+        device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
+        value_fn=lambda device: device.realtime.current_flow_rate_2,
+    ),
+    # Soft water Exchanger 2 [m³]
+    GruenbeckCloudEntityDescription(
+        key="remaining_capacity_volume_2",
+        translation_key="remaining_capacity_volume_2",
+        entity_registry_enabled_default=False,
+        native_unit_of_measurement=UnitOfVolume.CUBIC_METERS,
+        device_class=SensorDeviceClass.VOLUME,
+        value_fn=lambda device: device.realtime.remaining_capacity_volume_2,
+    ),
+    # Residual capacity Exchanger 2 [%]
+    GruenbeckCloudEntityDescription(
+        key="remaining_capacity_percentage_2",
+        translation_key="remaining_capacity_percentage_2",
+        entity_registry_enabled_default=False,
+        native_unit_of_measurement=PERCENTAGE,
+        value_fn=lambda device: device.realtime.remaining_capacity_percentage_2,
     ),
     # Make-up water volume [l]
     GruenbeckCloudEntityDescription(
@@ -228,7 +236,7 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         key="actual_value_soft_water_hardness",
         translation_key="actual_value_soft_water_hardness",
         entity_registry_enabled_default=False,
-        native_unit_of_measurement=DEVICE_CLASS_DH,
+        native_unit_of_measurement=UNIT_OF_DH,
         value_fn=lambda device: device.realtime.actual_value_soft_water_hardness,
     ),
     # Capacity figure [m³x°dH]
@@ -236,7 +244,7 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         key="capacity_figure",
         translation_key="capacity_figure",
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="m³x°dH",
+        native_unit_of_measurement=UNIT_OF_M3_X_DH,
         value_fn=lambda device: device.realtime.capacity_figure,
     ),
     # Flow rate peak value [m³/h]
@@ -285,8 +293,8 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         key="regeneration_flow_rate_exchanger",
         translation_key="regeneration_flow_rate_exchanger",
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="l/h",
-        device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
+        native_unit_of_measurement=UNIT_OF_L_HOUR,
+        # device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         value_fn=lambda device: device.realtime.regeneration_flow_rate_exchanger,
     ),
     # Regeneration flow rate Exchanger 2 [l/h]
@@ -294,8 +302,8 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         key="regeneration_flow_rate_exchanger_2",
         translation_key="regeneration_flow_rate_exchanger_2",
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="l/h",
-        device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
+        native_unit_of_measurement=UNIT_OF_L_HOUR,
+        # device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         value_fn=lambda device: device.realtime.regeneration_flow_rate_exchanger_2,
     ),
     # Blending flow rate [m³/h]

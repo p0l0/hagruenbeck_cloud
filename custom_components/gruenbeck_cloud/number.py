@@ -15,16 +15,18 @@ from homeassistant.components.number import (
     NumberMode,
 )
 from homeassistant.const import (
+    PERCENTAGE,
     EntityCategory,
     UnitOfElectricCurrent,
     UnitOfFrequency,
+    UnitOfTime,
     UnitOfVolume,
     UnitOfVolumeFlowRate,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import DOMAIN
+from .const import DOMAIN, UNIT_OF_DH, UNIT_OF_L_IMP, UNIT_OF_M3_X_DH, UNIT_OF_MA_MIN
 from .coordinator import GruenbeckCloudCoordinator
 from .models import GruenbeckCloudEntity
 
@@ -50,7 +52,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="raw_water_hardness",
         entity_category=EntityCategory.CONFIG,
         mode=NumberMode.BOX,
-        unit_of_measurement="°dH",
+        native_unit_of_measurement=UNIT_OF_DH,
         value_fn=lambda device: device.parameters.raw_water_hardness,
         update_fn=lambda device, value: {"raw_water_hardness": value},
     ),
@@ -59,10 +61,15 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="soft_water_hardness",
         entity_category=EntityCategory.CONFIG,
         mode=NumberMode.BOX,
-        unit_of_measurement="°dH",
+        native_unit_of_measurement=UNIT_OF_DH,
         value_fn=lambda device: device.parameters.soft_water_hardness,
         update_fn=lambda device, value: {"soft_water_hardness": value},
     ),
+    #################################################################
+    #                                                               #
+    # Disabled Entities - Need to be activated manually in Frontend #
+    #                                                               #
+    #################################################################
     # Maintenance information [days]
     GruenbeckCloudEntityDescription(
         key="maintenance_interval",
@@ -73,7 +80,8 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         native_min_value=1,
         native_max_value=365,
         native_step=1,
-        unit_of_measurement="days",
+        native_unit_of_measurement=UnitOfTime.DAYS,
+        # device_class=SensorDeviceClass.DURATION,
         value_fn=lambda device: device.parameters.maintenance_interval,
         # We get currently a 500 error from API if we try to change it
         update_fn=lambda device, value: {"maintenance_interval": value},
@@ -85,7 +93,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         mode=NumberMode.SLIDER,
-        unit_of_measurement="%",
+        native_unit_of_measurement=PERCENTAGE,
         native_min_value=1,
         native_max_value=100,
         native_step=1,
@@ -101,7 +109,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         mode=NumberMode.SLIDER,
         native_min_value=1,
         native_max_value=100,
-        unit_of_measurement="%",
+        native_unit_of_measurement=PERCENTAGE,
         native_step=1,
         value_fn=lambda device: device.parameters.residual_capacity_limit,
         # We get currently a 500 error from API if we try to change it
@@ -127,7 +135,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
         mode=NumberMode.BOX,
-        unit_of_measurement="mAmin",
+        native_unit_of_measurement=UNIT_OF_MA_MIN,
         value_fn=lambda device: device.parameters.charge,
         # We get currently a 500 error from API if we try to change it
         update_fn=lambda device, value: {"charge": value},
@@ -142,7 +150,8 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         native_min_value=1,
         native_max_value=365,
         native_step=1,
-        unit_of_measurement="days",
+        native_unit_of_measurement=UnitOfTime.DAYS,
+        # device_class=SensorDeviceClass.DURATION,
         value_fn=lambda device: device.parameters.interval_forced_regeneration,
         # We get currently a 500 error from API if we try to change it
         update_fn=lambda device, value: {"interval_forced_regeneration": value},
@@ -205,7 +214,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="soft_water_meter_pulse_rate",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="l/Imp",
+        native_unit_of_measurement=UNIT_OF_L_IMP,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.soft_water_meter_pulse_rate,
         # We get currently a 500 error from API if we try to change it
@@ -217,7 +226,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="blending_water_meter_pulse_rate",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="l/Imp",
+        native_unit_of_measurement=UNIT_OF_L_IMP,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.blending_water_meter_pulse_rate,
         # We get currently a 500 error from API if we try to change it
@@ -229,7 +238,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="regeneration_water_meter_pulse_rate",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="l/Imp",
+        native_unit_of_measurement=UNIT_OF_L_IMP,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.regeneration_water_meter_pulse_rate,
         # We get currently a 500 error from API if we try to change it
@@ -241,7 +250,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="capacity_figure_monday",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="m³x°dH",
+        native_unit_of_measurement=UNIT_OF_M3_X_DH,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.capacity_figure_monday,
         # We get currently a 500 error from API if we try to change it
@@ -252,7 +261,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="capacity_figure_tuesday",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="m³x°dH",
+        native_unit_of_measurement=UNIT_OF_M3_X_DH,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.capacity_figure_tuesday,
         # We get currently a 500 error from API if we try to change it
@@ -263,7 +272,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="capacity_figure_wednesday",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="m³x°dH",
+        native_unit_of_measurement=UNIT_OF_M3_X_DH,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.capacity_figure_wednesday,
         # We get currently a 500 error from API if we try to change it
@@ -274,7 +283,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="capacity_figure_thursday",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="m³x°dH",
+        native_unit_of_measurement=UNIT_OF_M3_X_DH,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.capacity_figure_thursday,
         # We get currently a 500 error from API if we try to change it
@@ -285,7 +294,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="capacity_figure_friday",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="m³x°dH",
+        native_unit_of_measurement=UNIT_OF_M3_X_DH,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.capacity_figure_friday,
         # We get currently a 500 error from API if we try to change it
@@ -296,7 +305,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="capacity_figure_saturday",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="m³x°dH",
+        native_unit_of_measurement=UNIT_OF_M3_X_DH,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.capacity_figure_saturday,
         # We get currently a 500 error from API if we try to change it
@@ -307,7 +316,7 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="capacity_figure_sunday",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="m³x°dH",
+        native_unit_of_measurement=UNIT_OF_M3_X_DH,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.capacity_figure_sunday,
         # We get currently a 500 error from API if we try to change it
@@ -332,7 +341,8 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="regeneration_monitoring_time",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="min",
+        native_unit_of_measurement=UnitOfTime.MINUTES,
+        # device_class=SensorDeviceClass.DURATION,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.regeneration_monitoring_time,
         # We get currently a 500 error from API if we try to change it
@@ -344,7 +354,8 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="salting_monitoring_time",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="min",
+        native_unit_of_measurement=UnitOfTime.MINUTES,
+        # device_class=SensorDeviceClass.DURATION,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.salting_monitoring_time,
         # We get currently a 500 error from API if we try to change it
@@ -356,7 +367,8 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="slow_rinse",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="min",
+        native_unit_of_measurement=UnitOfTime.MINUTES,
+        # device_class=SensorDeviceClass.DURATION,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.slow_rinse,
         # We get currently a 500 error from API if we try to change it
@@ -446,7 +458,8 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="longest_switch_on_time_chlorine_cell",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="min",
+        native_unit_of_measurement=UnitOfTime.MINUTES,
+        # device_class=SensorDeviceClass.DURATION,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.longest_switch_on_time_chlorine_cell,
         # We get currently a 500 error from API if we try to change it
@@ -458,7 +471,8 @@ NUMBERS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="maximum_remaining_time_regeneration",
         entity_category=EntityCategory.CONFIG,
         entity_registry_enabled_default=False,
-        native_unit_of_measurement="min",
+        native_unit_of_measurement=UnitOfTime.MINUTES,
+        # device_class=SensorDeviceClass.DURATION,
         mode=NumberMode.BOX,
         value_fn=lambda device: device.parameters.maximum_remaining_time_regeneration,
         # We get currently a 500 error from API if we try to change it

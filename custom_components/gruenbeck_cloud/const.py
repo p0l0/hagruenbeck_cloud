@@ -15,9 +15,12 @@ CONF_DEVICE_ID: Final = "device_id"
 # Polling update interval
 UPDATE_INTERVAL: Final = timedelta(seconds=360)
 
-# Custom Device classes
-DEVICE_CLASS_DH: Final = "°dH"
-DEVICE_CLASS_DAYS: Final = "days"  # @TODO - We need to translate this!
+# Custom Unit of Measurement
+UNIT_OF_DH: Final = "°dH"
+UNIT_OF_MA_MIN: Final = "mAmin"
+UNIT_OF_L_IMP: Final = "l/Imp"
+UNIT_OF_M3_X_DH: Final = "m³x°dH"
+UNIT_OF_L_HOUR: Final = "l/h"
 
 # Services
 SERVICE_UPDATE_DEVICE_PARAMETERS: Final = "change_settings"
