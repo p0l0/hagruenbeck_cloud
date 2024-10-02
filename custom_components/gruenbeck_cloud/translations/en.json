@@ -205,6 +205,38 @@
         "name": "Maximum remaining time regeneration"
       }
     },
+    "switch": {
+      "dlst": {
+        "name": "Daylight saving time"
+      },
+      "buzzer": {
+        "name": "Audio signal on error"
+      },
+      "push_notification": {
+        "name": "Push Notifications"
+      },
+      "email_notification": {
+        "name": "Email Notifications"
+      },
+      "ntp_sync": {
+        "name": "Get date/time automatically (NTP)"
+      },
+      "fault_signal_contact": {
+        "name": "Function fault signal contact"
+      },
+      "knx": {
+        "name": "KNX connection"
+      },
+      "nominal_flow_monitoring": {
+        "name": "Monitoring of nominal flow"
+      },
+      "disinfection_monitoring": {
+        "name": "Disinfection monitoring"
+      },
+      "led_ring_flash_on_signal": {
+        "name": "Illuminated LED ring flashes for pre-alarm salt supply"
+      }
+    },
     "sensor": {
       "next_regeneration": {
         "name": "Next Regeneration"
