@@ -1,166 +1,41 @@
 {
   "config": {
-    "step": {
-      "user": {
-        "data": {
-          "username": "[%key:common::config_flow::data::username%]",
-          "password": "[%key:common::config_flow::data::password%]"
-        }
-      }
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
     },
     "error": {
       "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
       "cannot_connect_timeout": "Timeout trying to connect",
-      "unknown": "[%key:common::config_flow::error::unknown%]",
-      "no_devices": "No Devices found in account"
+      "no_devices": "No Devices found in account",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
     },
-    "abort": {
-      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
-    }
-  },
-  "services": {
-    "change_settings": {
-      "name": "Change settings",
-      "description": "Changes the setting for the water softener.",
-      "fields": {
-        "parameter": {
-          "name": "Parameter name",
-          "description": "The name of the parameter, see https://github.com/p0l0/pygruenbeck_cloud?tab=readme-ov-file#available-configuration-parameter for available parameter"
-        },
-        "value": {
-          "name": "Value",
-          "description": "New value to be set"
+    "step": {
+      "user": {
+        "data": {
+          "password": "[%key:common::config_flow::data::password%]",
+          "username": "[%key:common::config_flow::data::username%]"
         }
       }
-    },
-    "get_device_salt_measurements": {
-      "name": "Retrieve Salt measurements",
-      "description": "Returns a list with the salt measurement for each day, since startup"
-    },
-    "get_device_water_measurements": {
-      "name": "Retrieve Water measurements",
-      "description": "Returns a list with the water measurement for each day, since startup"
-    },
-    "regenerate": {
-      "name": "Manual regeneration",
-      "description": "Starts a manual regeneration"
     }
   },
   "entity": {
-    "select": {
-      "mode": {
-        "name": "Operation Mode"
-      },
-      "mode_individual_monday": {
-        "name": "Individual Operation Mode Monday"
-      },
-      "mode_individual_tuesday": {
-        "name": "Individual Operation Mode Tuesday"
-      },
-      "mode_individual_wednesday": {
-        "name": "Individual Operation Mode Wednesday"
-      },
-      "mode_individual_thursday": {
-        "name": "Individual Operation Mode Thursday"
-      },
-      "mode_individual_friday": {
-        "name": "Individual Operation Mode Friday"
-      },
-      "mode_individual_saturday": {
-        "name": "Individual Operation Mode Saturday"
-      },
-      "mode_individual_sunday": {
-        "name": "Individual Operation Mode Sunday"
-      },
-      "regeneration_mode": {
-        "name": "Regeneration Mode"
-      },
-      "water_hardness_unit": {
-        "name": "Water Hardness Unit"
-      },
-      "language": {
-        "name": "Language"
-      },
-      "led_ring_mode": {
-        "name": "LED Ring Mode"
-      }
-    },
     "binary_sensor": {
       "has_error": {
         "name": "Has error"
       }
     },
-    "text": {
-      "installer_name": {
-        "name": "Installer Name"
-      },
-      "installer_phone": {
-        "name": "Installer Phone"
-      },
-      "installer_email": {
-        "name": "Installer Email"
-      }
-    },
     "number": {
-      "raw_water_hardness": {
-        "name": "raw_water_hardness"
-      },
-      "soft_water_hardness": {
-        "name": "soft_water_hardness"
-      },
-      "maintenance_interval": {
-        "name": "Maintenance Interval"
-      },
-      "led_ring_brightness": {
-        "name": "LED ring Brightness"
-      },
-      "residual_capacity_limit": {
-        "name": "Residual capacity limit value"
-      },
-      "current_setpoint": {
-        "name": "Current setpoint"
-      },
-      "charge": {
-        "name": "Charge"
-      },
-      "interval_forced_regeneration": {
-        "name": "Interval of forced regeneration"
-      },
-      "end_frequency_regeneration_valve": {
-        "name": "End frequency regeneration valve"
-      },
-      "end_frequency_regeneration_valve_2": {
-        "name": "End frequency regeneration valve 2"
-      },
-      "end_frequency_blending_valve": {
-        "name": "End frequency blending valve"
-      },
-      "treatment_volume": {
-        "name": "Treatment volume"
-      },
-      "soft_water_meter_pulse_rate": {
-        "name": "Soft water meter pulse rate"
+      "backwash": {
+        "name": "Backwash"
       },
       "blending_water_meter_pulse_rate": {
         "name": "Blending water meter pulse rate"
       },
-      "regeneration_water_meter_pulse_rate": {
-        "name": "Regeneration water meter pulse rate"
+      "capacity_figure_friday": {
+        "name": "Capacity figure Friday"
       },
       "capacity_figure_monday": {
         "name": "Capacity figure Monday"
-      },
-      "capacity_figure_tuesday": {
-        "name": "Capacity figure Tuesday"
-      },
-      "capacity_figure_wednesday": {
-        "name": "Capacity figure Wednesday"
-      },
-      "capacity_figure_thursday": {
-        "name": "Capacity figure Thursday"
-      },
-      "capacity_figure_friday": {
-        "name": "Capacity figure Friday"
       },
       "capacity_figure_saturday": {
         "name": "Capacity figure Saturday"
@@ -168,11 +43,71 @@
       "capacity_figure_sunday": {
         "name": "Capacity figure Sunday"
       },
+      "capacity_figure_thursday": {
+        "name": "Capacity figure Thursday"
+      },
+      "capacity_figure_tuesday": {
+        "name": "Capacity figure Tuesday"
+      },
+      "capacity_figure_wednesday": {
+        "name": "Capacity figure Wednesday"
+      },
+      "charge": {
+        "name": "Charge"
+      },
+      "current_setpoint": {
+        "name": "Current setpoint"
+      },
+      "end_frequency_blending_valve": {
+        "name": "End frequency blending valve"
+      },
+      "end_frequency_regeneration_valve": {
+        "name": "End frequency regeneration valve"
+      },
+      "end_frequency_regeneration_valve_2": {
+        "name": "End frequency regeneration valve 2"
+      },
+      "interval_forced_regeneration": {
+        "name": "Interval of forced regeneration"
+      },
+      "led_ring_brightness": {
+        "name": "LED ring Brightness"
+      },
+      "longest_switch_on_time_chlorine_cell": {
+        "name": "Longest switch-on time chlorine cell"
+      },
+      "maintenance_interval": {
+        "name": "Maintenance Interval"
+      },
+      "maximum_filling_volume_largest_cap": {
+        "name": "Maximum filling volume largest cap"
+      },
+      "maximum_filling_volume_smallest_cap": {
+        "name": "Maximum filling volume smallest cap"
+      },
+      "maximum_remaining_time_regeneration": {
+        "name": "Maximum remaining time regeneration"
+      },
+      "minimum_filling_volume_largest_cap": {
+        "name": "Minimum filling volume largest cap"
+      },
+      "minimum_filling_volume_smallest_cap": {
+        "name": "Minimum filling volume smallest cap"
+      },
       "nominal_flow_rate": {
         "name": "Nominal flow rate"
       },
+      "raw_water_hardness": {
+        "name": "Raw water hardness"
+      },
       "regeneration_monitoring_time": {
         "name": "Regeneration monitoring time"
+      },
+      "regeneration_water_meter_pulse_rate": {
+        "name": "Regeneration water meter pulse rate"
+      },
+      "residual_capacity_limit": {
+        "name": "Residual capacity limit value"
       },
       "salting_monitoring_time": {
         "name": "Salting monitoring time"
@@ -180,46 +115,176 @@
       "slow_rinse": {
         "name": "Slow rinse"
       },
-      "backwash": {
-        "name": "Backwash"
+      "soft_water_hardness": {
+        "name": "Soft water hardness"
+      },
+      "soft_water_meter_pulse_rate": {
+        "name": "Soft water meter pulse rate"
+      },
+      "treatment_volume": {
+        "name": "Treatment volume"
       },
       "washing_out": {
         "name": "Washing out"
+      }
+    },
+    "select": {
+      "language": {
+        "name": "Language"
       },
-      "minimum_filling_volume_smallest_cap": {
-        "name": "Minimum filling volume smallest cap"
+      "led_ring_mode": {
+        "name": "LED Ring Mode"
       },
-      "maximum_filling_volume_smallest_cap": {
-        "name": "Maximum filling volume smallest cap"
+      "mode": {
+        "name": "Operation Mode"
       },
-      "minimum_filling_volume_largest_cap": {
-        "name": "Minimum filling volume largest cap"
+      "mode_individual_friday": {
+        "name": "Individual Operation Mode Friday"
       },
-      "maximum_filling_volume_largest_cap": {
-        "name": "Maximum filling volume largest cap"
+      "mode_individual_monday": {
+        "name": "Individual Operation Mode Monday"
       },
-      "longest_switch_on_time_chlorine_cell": {
-        "name": "Longest switch-on time chlorine cell"
+      "mode_individual_saturday": {
+        "name": "Individual Operation Mode Saturday"
       },
-      "maximum_remaining_time_regeneration": {
-        "name": "Maximum remaining time regeneration"
+      "mode_individual_sunday": {
+        "name": "Individual Operation Mode Sunday"
+      },
+      "mode_individual_thursday": {
+        "name": "Individual Operation Mode Thursday"
+      },
+      "mode_individual_tuesday": {
+        "name": "Individual Operation Mode Tuesday"
+      },
+      "mode_individual_wednesday": {
+        "name": "Individual Operation Mode Wednesday"
+      },
+      "regeneration_mode": {
+        "name": "Regeneration Mode"
+      },
+      "water_hardness_unit": {
+        "name": "Water Hardness Unit"
+      }
+    },
+    "sensor": {
+      "actual_value_soft_water_hardness": {
+        "name": "Actual value soft water hardness"
+      },
+      "blending_flow_rate": {
+        "name": "Blending flow rate"
+      },
+      "capacity_figure": {
+        "name": "Capacity figure"
+      },
+      "current_chlorine": {
+        "name": "Current chlorine"
+      },
+      "current_flow_rate": {
+        "name": "Current Flow Rate"
+      },
+      "current_flow_rate_2": {
+        "name": "Current Flow Rate Exchanger 2"
+      },
+      "exchanger_peak_value": {
+        "name": "Exchanger peak value"
+      },
+      "exchanger_peak_value_2": {
+        "name": "Exchanger 2 peak value"
+      },
+      "exhausted_percentage": {
+        "name": "Adsorber exhausted percentage"
+      },
+      "flow_rate_peak_value": {
+        "name": "Flow rate peak value"
+      },
+      "last_regeneration_exchanger": {
+        "name": "Last regeneration Exchanger"
+      },
+      "last_regeneration_exchanger_2": {
+        "name": "Last regeneration Exchanger 2"
+      },
+      "last_service": {
+        "name": "Last service"
+      },
+      "make_up_water_volume": {
+        "name": "Make-up water volume"
+      },
+      "next_regeneration": {
+        "name": "Next Regeneration"
+      },
+      "next_service": {
+        "name": "Next Service"
+      },
+      "raw_water": {
+        "name": "Raw Water"
+      },
+      "regeneration_counter": {
+        "name": "Regeneration Counter"
+      },
+      "regeneration_flow_rate_exchanger": {
+        "name": "Regeneration flow rate Exchanger"
+      },
+      "regeneration_flow_rate_exchanger_2": {
+        "name": "Regeneration flow rate Exchanger 2"
+      },
+      "regeneration_remaining_time": {
+        "name": "Remaining amount / time of current regeneration step"
+      },
+      "regeneration_step": {
+        "name": "Regeneration step"
+      },
+      "remaining_amount_of_water": {
+        "name": "Adsorber remaining amount of water"
+      },
+      "remaining_capacity_percentage": {
+        "name": "Remaining Capacity %"
+      },
+      "remaining_capacity_percentage_2": {
+        "name": "Remaining Capacity Exchanger 2 %"
+      },
+      "remaining_capacity_volume": {
+        "name": "Remaining Capacity m³"
+      },
+      "remaining_capacity_volume_2": {
+        "name": "Remaining Capacity Exchanger 2 m³"
+      },
+      "salt_consumption": {
+        "name": "Salt Consumption"
+      },
+      "salt_range": {
+        "name": "Salt Range"
+      },
+      "soft_water": {
+        "name": "Soft Water"
+      },
+      "soft_water_quantity": {
+        "name": "Soft Water Quantity"
+      },
+      "soft_water_quantity_2": {
+        "name": "Soft Water Quantity Exchanger 2"
+      },
+      "startup": {
+        "name": "Start-up date"
+      },
+      "step_indication_regeneration_valve": {
+        "name": "Step indication regeneration valve 1"
+      },
+      "step_indication_regeneration_valve_2": {
+        "name": "Step indication regeneration valve 2"
       }
     },
     "switch": {
-      "dlst": {
-        "name": "Daylight saving time"
-      },
       "buzzer": {
         "name": "Audio signal on error"
       },
-      "push_notification": {
-        "name": "Push Notifications"
+      "disinfection_monitoring": {
+        "name": "Disinfection monitoring"
+      },
+      "dlst": {
+        "name": "Daylight saving time"
       },
       "email_notification": {
         "name": "Email Notifications"
-      },
-      "ntp_sync": {
-        "name": "Get date/time automatically (NTP)"
       },
       "fault_signal_contact": {
         "name": "Function fault signal contact"
@@ -227,53 +292,31 @@
       "knx": {
         "name": "KNX connection"
       },
+      "led_ring_flash_on_signal": {
+        "name": "Illuminated LED ring flashes for pre-alarm salt supply"
+      },
       "nominal_flow_monitoring": {
         "name": "Monitoring of nominal flow"
       },
-      "disinfection_monitoring": {
-        "name": "Disinfection monitoring"
+      "ntp_sync": {
+        "name": "Get date/time automatically (NTP)"
       },
-      "led_ring_flash_on_signal": {
-        "name": "Illuminated LED ring flashes for pre-alarm salt supply"
+      "push_notification": {
+        "name": "Push Notifications"
+      }
+    },
+    "text": {
+      "installer_email": {
+        "name": "Installer Email"
+      },
+      "installer_name": {
+        "name": "Installer Name"
+      },
+      "installer_phone": {
+        "name": "Installer Phone"
       }
     },
     "time": {
-      "regeneration_time_monday_1": {
-        "name": "Regeneration Time Monday #1"
-      },
-      "regeneration_time_monday_2": {
-        "name": "Regeneration Time Monday #2"
-      },
-      "regeneration_time_monday_3": {
-        "name": "Regeneration Time Monday #3"
-      },
-      "regeneration_time_tuesday_1": {
-        "name": "Regeneration Time Tuesday #1"
-      },
-      "regeneration_time_tuesday_2": {
-        "name": "Regeneration Time Tuesday #2"
-      },
-      "regeneration_time_tuesday_3": {
-        "name": "Regeneration Time Tuesday #3"
-      },
-      "regeneration_time_wednesday_1": {
-        "name": "Regeneration Time Wednesday #1"
-      },
-      "regeneration_time_wednesday_2": {
-        "name": "Regeneration Time Wednesday #2"
-      },
-      "regeneration_time_wednesday_3": {
-        "name": "Regeneration Time Wednesday #3"
-      },
-      "regeneration_time_thursday_1": {
-        "name": "Regeneration Time Thursday #1"
-      },
-      "regeneration_time_thursday_2": {
-        "name": "Regeneration Time Thursday #2"
-      },
-      "regeneration_time_thursday_3": {
-        "name": "Regeneration Time Thursday #3"
-      },
       "regeneration_time_friday_1": {
         "name": "Regeneration Time Friday #1"
       },
@@ -282,6 +325,15 @@
       },
       "regeneration_time_friday_3": {
         "name": "Regeneration Time Friday #3"
+      },
+      "regeneration_time_monday_1": {
+        "name": "Regeneration Time Monday #1"
+      },
+      "regeneration_time_monday_2": {
+        "name": "Regeneration Time Monday #2"
+      },
+      "regeneration_time_monday_3": {
+        "name": "Regeneration Time Monday #3"
       },
       "regeneration_time_saturday_1": {
         "name": "Regeneration Time Saturday #1"
@@ -300,114 +352,62 @@
       },
       "regeneration_time_sunday_3": {
         "name": "Regeneration Time Sunday #3"
+      },
+      "regeneration_time_thursday_1": {
+        "name": "Regeneration Time Thursday #1"
+      },
+      "regeneration_time_thursday_2": {
+        "name": "Regeneration Time Thursday #2"
+      },
+      "regeneration_time_thursday_3": {
+        "name": "Regeneration Time Thursday #3"
+      },
+      "regeneration_time_tuesday_1": {
+        "name": "Regeneration Time Tuesday #1"
+      },
+      "regeneration_time_tuesday_2": {
+        "name": "Regeneration Time Tuesday #2"
+      },
+      "regeneration_time_tuesday_3": {
+        "name": "Regeneration Time Tuesday #3"
+      },
+      "regeneration_time_wednesday_1": {
+        "name": "Regeneration Time Wednesday #1"
+      },
+      "regeneration_time_wednesday_2": {
+        "name": "Regeneration Time Wednesday #2"
+      },
+      "regeneration_time_wednesday_3": {
+        "name": "Regeneration Time Wednesday #3"
       }
+    }
+  },
+  "services": {
+    "change_settings": {
+      "description": "Changes the setting for the water softener.",
+      "fields": {
+        "parameter": {
+          "description": "The name of the parameter, see https://github.com/p0l0/pygruenbeck_cloud?tab=readme-ov-file#available-configuration-parameter for available parameter",
+          "name": "Parameter name"
+        },
+        "value": {
+          "description": "New value to be set",
+          "name": "Value"
+        }
+      },
+      "name": "Change settings"
     },
-    "sensor": {
-      "next_regeneration": {
-        "name": "Next Regeneration"
-      },
-      "startup": {
-        "name": "Start-up date"
-      },
-      "last_service": {
-        "name": "Last service"
-      },
-      "raw_water": {
-        "name": "Raw Water"
-      },
-      "soft_water": {
-        "name": "Soft Water"
-      },
-      "soft_water_quantity": {
-        "name": "Soft Water Quantity"
-      },
-      "soft_water_quantity_2": {
-        "name": "Soft Water Quantity Exchanger 2"
-      },
-      "regeneration_counter": {
-        "name": "Regeneration Counter"
-      },
-      "current_flow_rate": {
-        "name": "Current Flow Rate"
-      },
-      "current_flow_rate_2": {
-        "name": "Current Flow Rate Exchanger 2"
-      },
-      "remaining_capacity_volume": {
-        "name": "Remaining Capacity m³"
-      },
-      "remaining_capacity_volume_2": {
-        "name": "Remaining Capacity Exchanger 2 m³"
-      },
-      "remaining_capacity_percentage": {
-        "name": "Remaining Capacity %"
-      },
-      "remaining_capacity_percentage_2": {
-        "name": "Remaining Capacity Exchanger 2 %"
-      },
-      "salt_range": {
-        "name": "Salt Range"
-      },
-      "salt_consumption": {
-        "name": "Salt Consumption"
-      },
-      "next_service": {
-        "name": "Next Service"
-      },
-      "regeneration_remaining_time": {
-        "name": "Remaining amount / time of current regeneration step"
-      },
-      "regeneration_step": {
-        "name": "Regeneration step"
-      },
-      "make_up_water_volume": {
-        "name": "Make-up water volume"
-      },
-      "exhausted_percentage": {
-        "name": "Adsorber exhausted percentage"
-      },
-      "actual_value_soft_water_hardness": {
-        "name": "Actual value soft water hardness"
-      },
-      "capacity_figure": {
-        "name": "Capacity figure"
-      },
-      "flow_rate_peak_value": {
-        "name": "Flow rate peak value"
-      },
-      "exchanger_peak_value": {
-        "name": "Exchanger peak value"
-      },
-      "exchanger_peak_value_2": {
-        "name": "Exchanger 2 peak value"
-      },
-      "last_regeneration_exchanger": {
-        "name": "Last regeneration Exchanger"
-      },
-      "last_regeneration_exchanger_2": {
-        "name": "Last regeneration Exchanger 2"
-      },
-      "regeneration_flow_rate_exchanger": {
-        "name": "Regeneration flow rate Exchanger"
-      },
-      "regeneration_flow_rate_exchanger_2": {
-        "name": "Regeneration flow rate Exchanger 2"
-      },
-      "blending_flow_rate": {
-        "name": "Blending flow rate"
-      },
-      "step_indication_regeneration_valve": {
-        "name": "Step indication regeneration valve 1"
-      },
-      "step_indication_regeneration_valve_2": {
-        "name": "Step indication regeneration valve 2"
-      },
-      "current_chlorine": {
-        "name": "Current chlorine"
-      },
-      "remaining_amount_of_water": {
-        "name": "Adsorber remaining amount of water"
-      }
+    "get_device_salt_measurements": {
+      "description": "Returns a list with the salt measurement for each day, since startup",
+      "name": "Retrieve Salt measurements"
+    },
+    "get_device_water_measurements": {
+      "description": "Returns a list with the water measurement for each day, since startup",
+      "name": "Retrieve Water measurements"
+    },
+    "regenerate": {
+      "description": "Starts a manual regeneration",
+      "name": "Manual regeneration"
     }
   }
 }
