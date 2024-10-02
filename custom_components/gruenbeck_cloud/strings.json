@@ -237,6 +237,71 @@
         "name": "Illuminated LED ring flashes for pre-alarm salt supply"
       }
     },
+    "time": {
+      "regeneration_time_monday_1": {
+        "name": "Regeneration Time Monday #1"
+      },
+      "regeneration_time_monday_2": {
+        "name": "Regeneration Time Monday #2"
+      },
+      "regeneration_time_monday_3": {
+        "name": "Regeneration Time Monday #3"
+      },
+      "regeneration_time_tuesday_1": {
+        "name": "Regeneration Time Tuesday #1"
+      },
+      "regeneration_time_tuesday_2": {
+        "name": "Regeneration Time Tuesday #2"
+      },
+      "regeneration_time_tuesday_3": {
+        "name": "Regeneration Time Tuesday #3"
+      },
+      "regeneration_time_wednesday_1": {
+        "name": "Regeneration Time Wednesday #1"
+      },
+      "regeneration_time_wednesday_2": {
+        "name": "Regeneration Time Wednesday #2"
+      },
+      "regeneration_time_wednesday_3": {
+        "name": "Regeneration Time Wednesday #3"
+      },
+      "regeneration_time_thursday_1": {
+        "name": "Regeneration Time Thursday #1"
+      },
+      "regeneration_time_thursday_2": {
+        "name": "Regeneration Time Thursday #2"
+      },
+      "regeneration_time_thursday_3": {
+        "name": "Regeneration Time Thursday #3"
+      },
+      "regeneration_time_friday_1": {
+        "name": "Regeneration Time Friday #1"
+      },
+      "regeneration_time_friday_2": {
+        "name": "Regeneration Time Friday #2"
+      },
+      "regeneration_time_friday_3": {
+        "name": "Regeneration Time Friday #3"
+      },
+      "regeneration_time_saturday_1": {
+        "name": "Regeneration Time Saturday #1"
+      },
+      "regeneration_time_saturday_2": {
+        "name": "Regeneration Time Saturday #2"
+      },
+      "regeneration_time_saturday_3": {
+        "name": "Regeneration Time Saturday #3"
+      },
+      "regeneration_time_sunday_1": {
+        "name": "Regeneration Time Sunday #1"
+      },
+      "regeneration_time_sunday_2": {
+        "name": "Regeneration Time Sunday #2"
+      },
+      "regeneration_time_sunday_3": {
+        "name": "Regeneration Time Sunday #3"
+      }
+    },
     "sensor": {
       "next_regeneration": {
         "name": "Next Regeneration"
