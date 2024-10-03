@@ -100,6 +100,207 @@
         "name": "Installateur Email"
       }
   },
+    "number": {
+      "raw_water_hardness": {
+        "name": "Rohwasserhärte"
+      },
+      "soft_water_hardness": {
+        "name": "Weichwasserhärte"
+      },
+      "maintenance_interval": {
+        "name": "Wartungsintervall"
+      },
+      "led_ring_brightness": {
+        "name": "Helligkeit LED-Ring"
+      },
+      "residual_capacity_limit": {
+        "name": "Grenzwert für die Restkapazität"
+      },
+      "current_setpoint": {
+        "name": "Aktueller Einstellwert"
+      },
+      "charge": {
+        "name": "Aufladung"
+      },
+      "interval_forced_regeneration": {
+        "name": "Intervall der erzwungenen Regeneration"
+      },
+      "end_frequency_regeneration_valve": {
+        "name": "Endfrequenz Regenerationsventil"
+      },
+      "end_frequency_regeneration_valve_2": {
+        "name": "Endfrequenz Regenerationsventil 2"
+      },
+      "end_frequency_blending_valve": {
+        "name": "Endfrequenz Mischventil"
+      },
+      "treatment_volume": {
+        "name": "Behandlungsvolumen"
+      },
+      "soft_water_meter_pulse_rate": {
+        "name": "Weichwasserzähler Impulsrate"
+      },
+      "blending_water_meter_pulse_rate": {
+        "name": "Mischwasserzähler Impulsrate"
+      },
+      "regeneration_water_meter_pulse_rate": {
+        "name": "Regeneration water meter pulse rate"
+      },
+      "capacity_figure_monday": {
+        "name": "Kapazitätszahl Montag"
+      },
+      "capacity_figure_tuesday": {
+        "name": "Kapazitätszahl Dienstag"
+      },
+      "capacity_figure_wednesday": {
+        "name": "Kapazitätszahl Mittwoch"
+      },
+      "capacity_figure_thursday": {
+        "name": "Kapazitätszahl Donnerstag"
+      },
+      "capacity_figure_friday": {
+        "name": "Kapazitätszahl Freitag"
+      },
+      "capacity_figure_saturday": {
+        "name": "Kapazitätszahl Samstag"
+      },
+      "capacity_figure_sunday": {
+        "name": "Kapazitätszahl Sonntag"
+      },
+      "nominal_flow_rate": {
+        "name": "Nominale Durchflussmenge"
+      },
+      "regeneration_monitoring_time": {
+        "name": "Überwachung der Regenerationszeit"
+      },
+      "salting_monitoring_time": {
+        "name": "Überwachung der Salzzeit"
+      },
+      "slow_rinse": {
+        "name": "Langsame Spülung"
+      },
+      "backwash": {
+        "name": "Rückspülung"
+      },
+      "washing_out": {
+        "name": "Auswaschen"
+      },
+      "minimum_filling_volume_smallest_cap": {
+        "name": "Mindestfüllmenge kleinste Kappe"
+      },
+      "maximum_filling_volume_smallest_cap": {
+        "name": "Maximale Füllmenge kleinste Kappe"
+      },
+      "minimum_filling_volume_largest_cap": {
+        "name": "Mindestfüllmenge größte Kappe"
+      },
+      "maximum_filling_volume_largest_cap": {
+        "name": "Maximale Füllmenge größte Kappe"
+      },
+      "longest_switch_on_time_chlorine_cell": {
+        "name": "Längste Einschaltdauer Chlorzelle"
+      },
+      "maximum_remaining_time_regeneration": {
+        "name": "Maximale verbleibende Regenerationszeit"
+      }
+    },
+    "switch": {
+      "dlst": {
+        "name": "Sommerzeitregelung"
+      },
+      "buzzer": {
+        "name": "Audiosignal bei Fehler"
+      },
+      "push_notification": {
+        "name": "Push-Mitteilungen"
+      },
+      "email_notification": {
+        "name": "E-Mail-Benachrichtigungen"
+      },
+      "ntp_sync": {
+        "name": "Datum/Uhrzeit automatisch abrufen (NTP)"
+      },
+      "fault_signal_contact": {
+        "name": "Funktion Störungsmeldekontakt"
+      },
+      "knx": {
+        "name": "KNX Anschluss"
+      },
+      "nominal_flow_monitoring": {
+        "name": "Überwachung des Nenndurchflusses"
+      },
+      "disinfection_monitoring": {
+        "name": "Desinfektionsüberwachung"
+      },
+      "led_ring_flash_on_signal": {
+        "name": "Beleuchteter LED-Ring blinkt bei Voralarm Salzversorgung"
+      }
+    },
+    "time": {
+      "regeneration_time_monday_1": {
+        "name": "Regenerationszeit Montag #1"
+      },
+      "regeneration_time_monday_2": {
+        "name": "Regenerationszeit Montag #2"
+      },
+      "regeneration_time_monday_3": {
+        "name": "Regenerationszeit Montag #3"
+      },
+      "regeneration_time_tuesday_1": {
+        "name": "Regenerationszeit Dienstag #1"
+      },
+      "regeneration_time_tuesday_2": {
+        "name": "Regenerationszeit Dienstag #2"
+      },
+      "regeneration_time_tuesday_3": {
+        "name": "Regenerationszeit Dienstag #3"
+      },
+      "regeneration_time_wednesday_1": {
+        "name": "Regenerationszeit Mittwoch #1"
+      },
+      "regeneration_time_wednesday_2": {
+        "name": "Regenerationszeit Mittwoch #2"
+      },
+      "regeneration_time_wednesday_3": {
+        "name": "Regenerationszeit Mittwoch #3"
+      },
+      "regeneration_time_thursday_1": {
+        "name": "Regenerationszeit Donnerstag #1"
+      },
+      "regeneration_time_thursday_2": {
+        "name": "Regenerationszeit Donnerstag #2"
+      },
+      "regeneration_time_thursday_3": {
+        "name": "Regenerationszeit Donnerstag #3"
+      },
+      "regeneration_time_friday_1": {
+        "name": "Regenerationszeit Freitag #1"
+      },
+      "regeneration_time_friday_2": {
+        "name": "Regenerationszeit Freitag #2"
+      },
+      "regeneration_time_friday_3": {
+        "name": "Regenerationszeit Freitag #3"
+      },
+      "regeneration_time_saturday_1": {
+        "name": "Regenerationszeit Samstag #1"
+      },
+      "regeneration_time_saturday_2": {
+        "name": "Regenerationszeit Samstag #2"
+      },
+      "regeneration_time_saturday_3": {
+        "name": "Regenerationszeit Samstag #3"
+      },
+      "regeneration_time_sunday_1": {
+        "name": "Regenerationszeit Sonntag #1"
+      },
+      "regeneration_time_sunday_2": {
+        "name": "Regenerationszeit Sonntag #2"
+      },
+      "regeneration_time_sunday_3": {
+        "name": "Regenerationszeit Sonntag #3"
+      }
+    },
     "sensor": {
       "next_regeneration": {
         "name": "Nächste Regeneration"
