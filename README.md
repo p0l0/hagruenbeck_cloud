@@ -64,16 +64,16 @@ Custom Component to integrate Grünbeck Cloud based Water softeners into [Home A
 | `switch.<device_name>_dlst`     | Activate/Deactivate daylight saving time | :white_check_mark: |
 | `switch.<device_name>_email_notification`     | Activate/Deactivate Email Notifications | :white_check_mark: |
 | `switch.<device_name>_push_notification`     | Activate/Deactivate Push Notifications | :white_check_mark: |
-| `switch.<device_name>_disinfection_monitoring`     | Activate/Deactivate disinfection monitoring<br /><br />> [!CAUTION]<br />> API returns an 500 error when trying to change | :no_entry_sign: |
-| `switch.<device_name>_fault_signal_contact`     | Activate/Deactivate function fault signal contact<br /><br />_$${\color{red}API returns an 500 error when trying to change}$$_ | :no_entry_sign: |
-| `switch.<device_name>_knx`     | Activate/Deactivate KNX connection<br /><br />_$${\color{red}API returns an 500 error when trying to change}$$_ | :no_entry_sign: |
+| `switch.<device_name>_disinfection_monitoring`     | Activate/Deactivate disinfection monitoring<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `switch.<device_name>_fault_signal_contact`     | Activate/Deactivate function fault signal contact<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `switch.<device_name>_knx`     | Activate/Deactivate KNX connection<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
 | `switch.<device_name>_led_ring_flash_on_signal`     | Activate/Deactivate illuminated LED ring flashes for pre-alarm salt supply | :no_entry_sign: |
-| `switch.<device_name>_nominal_flow_monitoring`     | Activate/Deactivate monitoring of nominal flow<br /><br />_$${\color{red}API returns an 500 error when trying to change}$$_ | :no_entry_sign: |
-| `switch.<device_name>_ntp_sync`     | Activate/Deactivate getting date/time automatically (NTP)<br /><br />_$${\color{red}API returns an 500 error when trying to change}$$_ | :no_entry_sign: |
+| `switch.<device_name>_nominal_flow_monitoring`     | Activate/Deactivate monitoring of nominal flow<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `switch.<device_name>_ntp_sync`     | Activate/Deactivate getting date/time automatically (NTP)<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
 | __Text__ |||
-| `text.<device_name>_installer_email`     | Set the Installer Email<br /><br />_$${\color{red}API returns an 500 error when trying to change}$$_ | :no_entry_sign: |
-| `text.<device_name>_installer_name`     | Set the Installer Name<br /><br />_$${\color{red}API returns an 500 error when trying to change}$$_ | :no_entry_sign: |
-| `text.<device_name>_installer_phone`     | Set the Installer Phone<br /><br />_$${\color{red}API returns an 500 error when trying to change}$$_ | :no_entry_sign: |
+| `text.<device_name>_installer_email`     | Set the Installer Email<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `text.<device_name>_installer_name`     | Set the Installer Name<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `text.<device_name>_installer_phone`     | Set the Installer Phone<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
 | __Time__ |||
 | `time.<device_name>_regeneration_time_monday_1`     | Set Regeneration Time Monday slot #1 | :white_check_mark: |
 | `time.<device_name>_regeneration_time_monday_2`     | Set Regeneration Time Monday slot #2 | :white_check_mark: |
@@ -99,51 +99,51 @@ Custom Component to integrate Grünbeck Cloud based Water softeners into [Home A
 | __Number__ |||
 | `number.<device_name>_raw_water_hardness`     | Set the raw water hardness in °dH | :white_check_mark: |
 | `number.<device_name>_soft_water_hardness`     | Set the soft water hardness in °dH | :white_check_mark: |
-| `number.<device_name>_backwash`     | Set the backwash value in liter<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_blending_water_meter_pulse_rate`     | Set the blending water meter pulse rate in l/Imp<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_capacity_figure_monday`     | Set the capacity figure value for Monday in m³x°dH<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_capacity_figure_tuesday`     | Set the capacity figure value for Tuesday in m³x°dH<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_capacity_figure_wednesday`     | Set the capacity figure value for Wednesday in m³x°dH<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_capacity_figure_thursday`     | Set the capacity figure value for Thursday in m³x°dH<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_capacity_figure_friday`     | Set the capacity figure value for Friday in m³x°dH<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_capacity_figure_saturday`     | Set the capacity figure value for Saturday in m³x°dH<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_capacity_figure_sunday`     | Set the capacity figure value for Sunday in m³x°dH<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_charge`     | Set the charge value in mAmin<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_current_setpoint`     | Set the current setpoint value in mA<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_end_frequency_blending_valve`     | Set the end frequency blending valve value in Hz<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_end_frequency_regeneration_valve`     | Set the end frequency regeneration valve value in Hz<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_end_frequency_regeneration_valve_2`     | Set the end frequency regeneration value for valve 2 in Hz<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_interval_forced_regeneration`     | Set the interval of forced regeneration in days<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_led_ring_brightness`     | Set the LED ring Brightness in percentage<br /><br />_(This entity is disabled by default)_ | :no_entry_sign: |
-| `number.<device_name>_longest_switch_on_time_chlorine_cell`     | Set the longest switch-on time chlorine cell value in minutes<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_maintenance_interval`     | Set the maintenance interval in days<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_minimum_filling_volume_largest_cap`     | Set the minimum filling volume for largest cap in liter<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_maximum_filling_volume_largest_cap`     | Set the maximum filling volume for largest cap in liter<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_minimum_filling_volume_smallest_cap`     | Set the minimum filling volume for smallest cap in liter<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_maximum_filling_volume_smallest_cap`     | Set the maximum filling volume for smallest cap in liter<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_maximum_remaining_time_regeneration`     | Set the maximum remaining time regeneration in minutes<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_nominal_flow_rate`     | Set the nominal flow rate value in m³/h<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_regeneration_monitoring_time`     | Set the regeneration monitoring time in minutes<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_regeneration_water_meter_pulse_rate`     | Set the regeneration water meter pulse rate in l/Imp<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_residual_capacity_limit`     | Set the residual capacity limit value in percentage<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_salting_monitoring_time`     | Set the salting monitoring time in minutes<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_slow_rinse`     | Set the slow rinse value in minutes<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_soft_water_meter_pulse_rate`     | Set the soft water meter pulse rate in l/Imp<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_treatment_volume`     | Set the treatment volume in m³<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `number.<device_name>_washing_out`     | Set the washing out value in liter<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_backwash`     | Set the backwash value in liter<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_blending_water_meter_pulse_rate`     | Set the blending water meter pulse rate in l/Imp<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_capacity_figure_monday`     | Set the capacity figure value for Monday in m³x°dH<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_capacity_figure_tuesday`     | Set the capacity figure value for Tuesday in m³x°dH<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_capacity_figure_wednesday`     | Set the capacity figure value for Wednesday in m³x°dH<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_capacity_figure_thursday`     | Set the capacity figure value for Thursday in m³x°dH<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_capacity_figure_friday`     | Set the capacity figure value for Friday in m³x°dH<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_capacity_figure_saturday`     | Set the capacity figure value for Saturday in m³x°dH<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_capacity_figure_sunday`     | Set the capacity figure value for Sunday in m³x°dH<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_charge`     | Set the charge value in mAmin<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_current_setpoint`     | Set the current setpoint value in mA<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_end_frequency_blending_valve`     | Set the end frequency blending valve value in Hz<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_end_frequency_regeneration_valve`     | Set the end frequency regeneration valve value in Hz<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_end_frequency_regeneration_valve_2`     | Set the end frequency regeneration value for valve 2 in Hz<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_interval_forced_regeneration`     | Set the interval of forced regeneration in days<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_led_ring_brightness`     | Set the LED ring Brightness in percentage | :no_entry_sign: |
+| `number.<device_name>_longest_switch_on_time_chlorine_cell`     | Set the longest switch-on time chlorine cell value in minutes<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_maintenance_interval`     | Set the maintenance interval in days<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_minimum_filling_volume_largest_cap`     | Set the minimum filling volume for largest cap in liter<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_maximum_filling_volume_largest_cap`     | Set the maximum filling volume for largest cap in liter<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_minimum_filling_volume_smallest_cap`     | Set the minimum filling volume for smallest cap in liter<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_maximum_filling_volume_smallest_cap`     | Set the maximum filling volume for smallest cap in liter<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_maximum_remaining_time_regeneration`     | Set the maximum remaining time regeneration in minutes<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_nominal_flow_rate`     | Set the nominal flow rate value in m³/h<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_regeneration_monitoring_time`     | Set the regeneration monitoring time in minutes<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_regeneration_water_meter_pulse_rate`     | Set the regeneration water meter pulse rate in l/Imp<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_residual_capacity_limit`     | Set the residual capacity limit value in percentage<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_salting_monitoring_time`     | Set the salting monitoring time in minutes<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_slow_rinse`     | Set the slow rinse value in minutes<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_soft_water_meter_pulse_rate`     | Set the soft water meter pulse rate in l/Imp<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_treatment_volume`     | Set the treatment volume in m³<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `number.<device_name>_washing_out`     | Set the washing out value in liter<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
 | __Select__ |||
 | `select.<device_name>_mode`     | Select sensor to change the operation mode | :white_check_mark: |
 | `select.<device_name>_regeneration_mode`     | Select sensor to change the regeneration mode | :white_check_mark: |
 | `select.<device_name>_water_hardness_unit`     | Select sensor to change the water hardness unit | :white_check_mark: |
-| `select.<device_name>_language`     | Select sensor to change the interface language<br /><br />_(This entity is disabled by default)_<br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
-| `select.<device_name>_led_ring_mode`     | Select sensor to change the LED Ring Mode<br /><br />_(This entity is disabled by default)_ | :no_entry_sign: |
-| `select.<device_name>_mode_individual_monday`     | Select sensor to change the individual operation mode for Monday<br /><br />_(This entity is disabled by default)_ | :no_entry_sign: |
-| `select.<device_name>_mode_individual_tuesday`     | Select sensor to change the individual operation mode for Tuesday<br /><br />_(This entity is disabled by default)_ | :no_entry_sign: |
-| `select.<device_name>_mode_individual_wednesday`     | Select sensor to change the individual operation mode for Wednesday<br /><br />_(This entity is disabled by default)_ | :no_entry_sign: |
-| `select.<device_name>_mode_individual_thursday`     | Select sensor to change the individual operation mode for Thursday<br /><br />_(This entity is disabled by default)_ | :no_entry_sign: |
-| `select.<device_name>_mode_individual_friday`     | Select sensor to change the individual operation mode for Friday<br /><br />_(This entity is disabled by default)_ | :no_entry_sign: |
-| `select.<device_name>_mode_individual_saturday`     | Select sensor to change the individual operation mode for Saturday<br /><br />_(This entity is disabled by default)_ | :no_entry_sign: |
-| `select.<device_name>_mode_individual_sunday`     | Select sensor to change the individual operation mode for Sunday<br /><br />_(This entity is disabled by default)_ | :no_entry_sign: |
+| `select.<device_name>_language`     | Select sensor to change the interface language<br /><br />__API returns an 500 error when trying to change__ | :no_entry_sign: |
+| `select.<device_name>_led_ring_mode`     | Select sensor to change the LED Ring Mode | :no_entry_sign: |
+| `select.<device_name>_mode_individual_monday`     | Select sensor to change the individual operation mode for Monday | :no_entry_sign: |
+| `select.<device_name>_mode_individual_tuesday`     | Select sensor to change the individual operation mode for Tuesday | :no_entry_sign: |
+| `select.<device_name>_mode_individual_wednesday`     | Select sensor to change the individual operation mode for Wednesday | :no_entry_sign: |
+| `select.<device_name>_mode_individual_thursday`     | Select sensor to change the individual operation mode for Thursday | :no_entry_sign: |
+| `select.<device_name>_mode_individual_friday`     | Select sensor to change the individual operation mode for Friday | :no_entry_sign: |
+| `select.<device_name>_mode_individual_saturday`     | Select sensor to change the individual operation mode for Saturday | :no_entry_sign: |
+| `select.<device_name>_mode_individual_sunday`     | Select sensor to change the individual operation mode for Sunday | :no_entry_sign: |
 
  > [!NOTE]
  > Entity names are using translation, that means they will have a different name if you are not using english.
