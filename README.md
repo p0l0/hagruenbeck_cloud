@@ -64,7 +64,7 @@ Custom Component to integrate Grünbeck Cloud based Water softeners into [Home A
 | `switch.<device_name>_dlst`     | Activate/Deactivate daylight saving time | :white_check_mark: |
 | `switch.<device_name>_email_notification`     | Activate/Deactivate Email Notifications | :white_check_mark: |
 | `switch.<device_name>_push_notification`     | Activate/Deactivate Push Notifications | :white_check_mark: |
-| `switch.<device_name>_disinfection_monitoring`     | Activate/Deactivate disinfection monitoring<br /><br />_$${\color{red}API returns an 500 error when trying to change}$$_ | :no_entry_sign: |
+| `switch.<device_name>_disinfection_monitoring`     | Activate/Deactivate disinfection monitoring<br /><br />> [!CAUTION]<br />> API returns an 500 error when trying to change | :no_entry_sign: |
 | `switch.<device_name>_fault_signal_contact`     | Activate/Deactivate function fault signal contact<br /><br />_$${\color{red}API returns an 500 error when trying to change}$$_ | :no_entry_sign: |
 | `switch.<device_name>_knx`     | Activate/Deactivate KNX connection<br /><br />_$${\color{red}API returns an 500 error when trying to change}$$_ | :no_entry_sign: |
 | `switch.<device_name>_led_ring_flash_on_signal`     | Activate/Deactivate illuminated LED ring flashes for pre-alarm salt supply | :no_entry_sign: |
@@ -145,9 +145,11 @@ Custom Component to integrate Grünbeck Cloud based Water softeners into [Home A
 | `select.<device_name>_mode_individual_saturday`     | Select sensor to change the individual operation mode for Saturday<br /><br />_(This entity is disabled by default)_ | :no_entry_sign: |
 | `select.<device_name>_mode_individual_sunday`     | Select sensor to change the individual operation mode for Sunday<br /><br />_(This entity is disabled by default)_ | :no_entry_sign: |
 
- _(*) Entity names are using translation, that means they will have a different name if you are not using english._
+ > [!NOTE]
+ > Entity names are using translation, that means they will have a different name if you are not using english.
  
- _(**) Unfortunately some parameters can not be changed via API, it always returns an HTTP Error 500 with the error of type ‘unexpectedException’_
+ > [!CAUTION]
+ > Unfortunately some parameters can not be changed via API, it always returns an HTTP Error 500 with the error of type ‘unexpectedException’
 
 **This integration provides following services.**
 
