@@ -50,11 +50,255 @@
     "select": {
       "mode": {
         "name": "Arbeitsweise"
+      },
+      "mode_individual_monday": {
+        "name": "Arbeitsweise Montag"
+      },
+      "mode_individual_tuesday": {
+        "name": "Arbeitsweise Dienstag"
+      },
+      "mode_individual_wednesday": {
+        "name": "Arbeitsweise Mittwoch"
+      },
+      "mode_individual_thursday": {
+        "name": "Arbeitsweise Donnerstag"
+      },
+      "mode_individual_friday": {
+        "name": "Arbeitsweise Freitag"
+      },
+      "mode_individual_saturday": {
+        "name": "Arbeitsweise Samstag"
+      },
+      "mode_individual_sunday": {
+        "name": "Arbeitsweise Sonntag"
+      },"regeneration_mode": {
+        "name": "Regenerationsmodus"
+      },
+      "water_hardness_unit": {
+        "name": "Einheit der Wasserhärte"
+      },
+      "language": {
+        "name": "Sprache"
+      },
+      "led_ring_mode": {
+        "name": "LED Ring Modus"
       }
     },
     "binary_sensor": {
       "has_error": {
         "name": "Fehler"
+      }
+    },
+    "text": {
+      "installer_name": {
+        "name": "Installateur Name"
+      },
+      "installer_phone": {
+        "name": "Installateur Telefon"
+      },
+      "installer_email": {
+        "name": "Installateur Email"
+      }
+  },
+    "number": {
+      "raw_water_hardness": {
+        "name": "Rohwasserhärte"
+      },
+      "soft_water_hardness": {
+        "name": "Weichwasserhärte"
+      },
+      "maintenance_interval": {
+        "name": "Wartungsintervall"
+      },
+      "led_ring_brightness": {
+        "name": "Helligkeit LED-Ring"
+      },
+      "residual_capacity_limit": {
+        "name": "Grenzwert für die Restkapazität"
+      },
+      "current_setpoint": {
+        "name": "Aktueller Einstellwert"
+      },
+      "charge": {
+        "name": "Aufladung"
+      },
+      "interval_forced_regeneration": {
+        "name": "Intervall der erzwungenen Regeneration"
+      },
+      "end_frequency_regeneration_valve": {
+        "name": "Endfrequenz Regenerationsventil"
+      },
+      "end_frequency_regeneration_valve_2": {
+        "name": "Endfrequenz Regenerationsventil 2"
+      },
+      "end_frequency_blending_valve": {
+        "name": "Endfrequenz Mischventil"
+      },
+      "treatment_volume": {
+        "name": "Behandlungsvolumen"
+      },
+      "soft_water_meter_pulse_rate": {
+        "name": "Weichwasserzähler Impulsrate"
+      },
+      "blending_water_meter_pulse_rate": {
+        "name": "Mischwasserzähler Impulsrate"
+      },
+      "regeneration_water_meter_pulse_rate": {
+        "name": "Regeneration water meter pulse rate"
+      },
+      "capacity_figure_monday": {
+        "name": "Kapazitätszahl Montag"
+      },
+      "capacity_figure_tuesday": {
+        "name": "Kapazitätszahl Dienstag"
+      },
+      "capacity_figure_wednesday": {
+        "name": "Kapazitätszahl Mittwoch"
+      },
+      "capacity_figure_thursday": {
+        "name": "Kapazitätszahl Donnerstag"
+      },
+      "capacity_figure_friday": {
+        "name": "Kapazitätszahl Freitag"
+      },
+      "capacity_figure_saturday": {
+        "name": "Kapazitätszahl Samstag"
+      },
+      "capacity_figure_sunday": {
+        "name": "Kapazitätszahl Sonntag"
+      },
+      "nominal_flow_rate": {
+        "name": "Nominale Durchflussmenge"
+      },
+      "regeneration_monitoring_time": {
+        "name": "Überwachung der Regenerationszeit"
+      },
+      "salting_monitoring_time": {
+        "name": "Überwachung der Salzzeit"
+      },
+      "slow_rinse": {
+        "name": "Langsame Spülung"
+      },
+      "backwash": {
+        "name": "Rückspülung"
+      },
+      "washing_out": {
+        "name": "Auswaschen"
+      },
+      "minimum_filling_volume_smallest_cap": {
+        "name": "Mindestfüllmenge kleinste Kappe"
+      },
+      "maximum_filling_volume_smallest_cap": {
+        "name": "Maximale Füllmenge kleinste Kappe"
+      },
+      "minimum_filling_volume_largest_cap": {
+        "name": "Mindestfüllmenge größte Kappe"
+      },
+      "maximum_filling_volume_largest_cap": {
+        "name": "Maximale Füllmenge größte Kappe"
+      },
+      "longest_switch_on_time_chlorine_cell": {
+        "name": "Längste Einschaltdauer Chlorzelle"
+      },
+      "maximum_remaining_time_regeneration": {
+        "name": "Maximale verbleibende Regenerationszeit"
+      }
+    },
+    "switch": {
+      "dlst": {
+        "name": "Sommerzeitregelung"
+      },
+      "buzzer": {
+        "name": "Audiosignal bei Fehler"
+      },
+      "push_notification": {
+        "name": "Push-Mitteilungen"
+      },
+      "email_notification": {
+        "name": "E-Mail-Benachrichtigungen"
+      },
+      "ntp_sync": {
+        "name": "Datum/Uhrzeit automatisch abrufen (NTP)"
+      },
+      "fault_signal_contact": {
+        "name": "Funktion Störungsmeldekontakt"
+      },
+      "knx": {
+        "name": "KNX Anschluss"
+      },
+      "nominal_flow_monitoring": {
+        "name": "Überwachung des Nenndurchflusses"
+      },
+      "disinfection_monitoring": {
+        "name": "Desinfektionsüberwachung"
+      },
+      "led_ring_flash_on_signal": {
+        "name": "Beleuchteter LED-Ring blinkt bei Voralarm Salzversorgung"
+      }
+    },
+    "time": {
+      "regeneration_time_monday_1": {
+        "name": "Regenerationszeit Montag #1"
+      },
+      "regeneration_time_monday_2": {
+        "name": "Regenerationszeit Montag #2"
+      },
+      "regeneration_time_monday_3": {
+        "name": "Regenerationszeit Montag #3"
+      },
+      "regeneration_time_tuesday_1": {
+        "name": "Regenerationszeit Dienstag #1"
+      },
+      "regeneration_time_tuesday_2": {
+        "name": "Regenerationszeit Dienstag #2"
+      },
+      "regeneration_time_tuesday_3": {
+        "name": "Regenerationszeit Dienstag #3"
+      },
+      "regeneration_time_wednesday_1": {
+        "name": "Regenerationszeit Mittwoch #1"
+      },
+      "regeneration_time_wednesday_2": {
+        "name": "Regenerationszeit Mittwoch #2"
+      },
+      "regeneration_time_wednesday_3": {
+        "name": "Regenerationszeit Mittwoch #3"
+      },
+      "regeneration_time_thursday_1": {
+        "name": "Regenerationszeit Donnerstag #1"
+      },
+      "regeneration_time_thursday_2": {
+        "name": "Regenerationszeit Donnerstag #2"
+      },
+      "regeneration_time_thursday_3": {
+        "name": "Regenerationszeit Donnerstag #3"
+      },
+      "regeneration_time_friday_1": {
+        "name": "Regenerationszeit Freitag #1"
+      },
+      "regeneration_time_friday_2": {
+        "name": "Regenerationszeit Freitag #2"
+      },
+      "regeneration_time_friday_3": {
+        "name": "Regenerationszeit Freitag #3"
+      },
+      "regeneration_time_saturday_1": {
+        "name": "Regenerationszeit Samstag #1"
+      },
+      "regeneration_time_saturday_2": {
+        "name": "Regenerationszeit Samstag #2"
+      },
+      "regeneration_time_saturday_3": {
+        "name": "Regenerationszeit Samstag #3"
+      },
+      "regeneration_time_sunday_1": {
+        "name": "Regenerationszeit Sonntag #1"
+      },
+      "regeneration_time_sunday_2": {
+        "name": "Regenerationszeit Sonntag #2"
+      },
+      "regeneration_time_sunday_3": {
+        "name": "Regenerationszeit Sonntag #3"
       }
     },
     "sensor": {
@@ -76,17 +320,29 @@
       "soft_water_quantity": {
         "name": "Weichwasserverbrauch"
       },
+      "soft_water_quantity_2": {
+        "name": "Weichwasserverbrauch Austauscher 2"
+      },
       "regeneration_counter": {
         "name": "Anzahl Regenerationen"
       },
       "current_flow_rate": {
         "name": "Aktueller Durchfluss"
       },
+      "current_flow_rate_2": {
+        "name": "Aktueller Durchfluss Austauscher 2"
+      },
       "remaining_capacity_volume": {
         "name": "Restkapazität m³"
       },
+      "remaining_capacity_volume_2": {
+        "name": "Restkapazität Austauscher 2 m³"
+      },
       "remaining_capacity_percentage": {
         "name": "Restkapazität %"
+      },
+      "remaining_capacity_percentage_2": {
+        "name": "Restkapazität Austauscher 2 %"
       },
       "salt_range": {
         "name": "Salzvorrat"
@@ -96,6 +352,60 @@
       },
       "next_service": {
         "name": "Nächste Wartung"
+      },
+      "regeneration_remaining_time": {
+        "name": "Verbleibende Menge / Zeit der aktuellen Regenerationsstufe"
+      },
+      "regeneration_step": {
+        "name": "Regenerationsschritt"
+      },
+      "make_up_water_volume": {
+        "name": "Nachspeisewassermenge"
+      },
+      "exhausted_percentage": {
+        "name": "Adsorber erschöpft in Prozent"
+      },
+      "actual_value_soft_water_hardness": {
+        "name": "Tatsächlicher Wert der Weichwasserhärte"
+      },
+      "capacity_figure": {
+        "name": "Kapazität"
+      },
+      "flow_rate_peak_value": {
+        "name": "Spitzenwert der Durchflussmenge"
+      },
+      "exchanger_peak_value": {
+        "name": "Spitzenwert des Austauschers"
+      },
+      "exchanger_peak_value_2": {
+        "name": "Spitzenwert des Austauschers 2"
+      },
+      "last_regeneration_exchanger": {
+        "name": "Letzte Regeneration des Austauschers"
+      },
+      "last_regeneration_exchanger_2": {
+        "name": "Letzte Regeneration des Austauschers 2"
+      },
+      "regeneration_flow_rate_exchanger": {
+        "name": "Regenerationsdurchsatz Austauscher"
+      },
+      "regeneration_flow_rate_exchanger_2": {
+        "name": "Regenerationsdurchsatz Austauscher 2"
+      },
+      "blending_flow_rate": {
+        "name": "Mischungsdurchsatz"
+      },
+      "step_indication_regeneration_valve": {
+        "name": "Stufenanzeige Regenerationsventil 1"
+      },
+      "step_indication_regeneration_valve_2": {
+        "name": "Stufenanzeige Regenerationsventil 2"
+      },
+      "current_chlorine": {
+        "name": "Aktueller Chlorwert"
+      },
+      "remaining_amount_of_water": {
+        "name": "Adsorber Restwassermenge"
       }
     }
   }
