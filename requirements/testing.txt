@@ -5,7 +5,7 @@ pydocstyle==6.3.0
 pylint==3.3.0
 pylint-strict-informational==0.1
 mypy==1.11.2
-pre-commit==3.8.0
+pre-commit==4.0.0
 pytest==8.3.3
 pytest-cov==5.0.0
 pytest-aiohttp==1.0.5
