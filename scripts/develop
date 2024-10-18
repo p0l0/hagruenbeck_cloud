@@ -6,7 +6,7 @@ cd "$(dirname "$0")/.."
 
 # Make sure needed packages are installed
 apt-get update
-apt-get -y install libpcap-dev ffmpeg ccze
+apt-get -y install libpcap-dev ffmpeg ccze libturbojpeg0
 
 # Create config dir if not present
 if [[ ! -d "${PWD}/config" ]]; then
