@@ -94,7 +94,9 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         state_class=SensorStateClass.TOTAL_INCREASING,
         value_fn=lambda device: device.realtime.soft_water_quantity,
         extra_attr_fn=lambda device: {
-            "daily_usage": [daily.to_dict() for daily in device.water]  # type: ignore[union-attr]  # noqa: E501
+            "daily_usage": [daily.to_dict() for daily in device.water]  # type: ignore[attr-defined]  # noqa: E501
+            if device.water is not None
+            else None
         },
     ),
     # Regeneration counter
@@ -145,7 +147,9 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda device: device.realtime.salt_consumption,
         extra_attr_fn=lambda device: {
-            "daily_usage": [daily.to_dict() for daily in device.salt]  # type: ignore[union-attr]  # noqa: E501
+            "daily_usage": [daily.to_dict() for daily in device.salt]  # type: ignore[attr-defined]  # noqa: E501
+            if device.salt is not None
+            else None
         },
     ),
     # Perform maintenance in [days]

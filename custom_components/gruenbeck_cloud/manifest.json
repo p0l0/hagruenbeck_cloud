@@ -11,6 +11,6 @@
   "issue_tracker": "https://github.com/p0l0/hagruenbeck_cloud/issues",
   "requirements": ["pygruenbeck_cloud==1.1.0"],
   "ssdp": [],
-  "version": "1.0.0b2",
+  "version": "1.0.0b3",
   "zeroconf": []
 }
