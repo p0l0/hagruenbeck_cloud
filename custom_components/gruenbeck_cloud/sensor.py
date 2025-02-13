@@ -38,14 +38,13 @@ from .models import GruenbeckCloudEntity
 _LOGGER = logging.getLogger(__name__)
 
 
-# @dataclass(frozen=True, kw_only=True)
-@dataclass(kw_only=True)
+@dataclass(frozen=True, kw_only=True)
 class GruenbeckCloudEntityDescription(SensorEntityDescription):
     """Describes a Grünbeck Cloud entity."""
 
     exists_fn: Callable[[Device], bool] = lambda _: True
     extra_attr_fn: Callable[[Device], Mapping[str, Any] | None] = lambda _: None
-    value_fn: Callable[[Device], datetime | StateType]
+    value_fn: Callable[[Device], datetime | date | StateType]
 
 
 #

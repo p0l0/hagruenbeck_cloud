@@ -124,7 +124,7 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
         return {
             "entries": [
                 {
-                    "date": item.date,
+                    "date": item.date.isoformat(),
                     "value": item.value,
                 }
                 for item in device.salt
@@ -142,7 +142,7 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
         return {
             "entries": [
                 {
-                    "date": item.date,
+                    "date": item.date.isoformat(),
                     "value": item.value,
                 }
                 for item in device.water
