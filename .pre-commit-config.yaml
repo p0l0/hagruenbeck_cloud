@@ -47,7 +47,7 @@ repos:
       - id: python-typing-update
         stages: [manual]
         args:
-          - --py311-plus
+          - --py312-plus
           - --force
           - --keep-updates
         files: ^((custom_components/gruenbeck_cloud|tests|docs)/.+)?[^/]+\.py$

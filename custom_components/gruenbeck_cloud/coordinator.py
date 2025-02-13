@@ -9,6 +9,7 @@ from pygruenbeck_cloud.exceptions import (
     PyGruenbeckCloudConnectionClosedError,
     PyGruenbeckCloudError,
     PyGruenbeckCloudResponseStatusError,
+    PyGruenbeckCloudUpdateParameterError,
 )
 from pygruenbeck_cloud.models import Device
 
@@ -22,6 +23,7 @@ from homeassistant.core import (
     ServiceResponse,
     callback,
 )
+from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
@@ -122,7 +124,7 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
         return {
             "entries": [
                 {
-                    "date": item.date,
+                    "date": item.date.isoformat(),
                     "value": item.value,
                 }
                 for item in device.salt
@@ -140,7 +142,7 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
         return {
             "entries": [
                 {
-                    "date": item.date,
+                    "date": item.date.isoformat(),
                     "value": item.value,
                 }
                 for item in device.water
@@ -161,7 +163,10 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
 
     async def update_device_infos_parameters(self, data: dict[str, Any]) -> None:
         """Update Device parameters."""
-        self.data = await self.api.update_device_infos_parameters(data)
+        try:
+            self.data = await self.api.update_device_infos_parameters(data)
+        except PyGruenbeckCloudUpdateParameterError as err:
+            raise HomeAssistantError(err) from err
 
     @callback
     def async_set_updated_data(self, data: Device) -> None:
