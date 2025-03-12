@@ -1,1 +1,2 @@
 homeassistant>=2023.12.0
+jinja2>=3.1.6 # not directly required, pinned by Snyk to avoid a vulnerability
