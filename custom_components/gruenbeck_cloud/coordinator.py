@@ -6,6 +6,7 @@ from typing import Any
 
 from pygruenbeck_cloud import PyGruenbeckCloud
 from pygruenbeck_cloud.exceptions import (
+    PyGruenbeckCloudConnectionError,
     PyGruenbeckCloudConnectionClosedError,
     PyGruenbeckCloudError,
     PyGruenbeckCloudResponseStatusError,
@@ -80,6 +81,7 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
             try:
                 await self.api.listen(callback=self.async_set_updated_data)
             except (
+                PyGruenbeckCloudConnectionError,
                 PyGruenbeckCloudConnectionClosedError,
                 PyGruenbeckCloudResponseStatusError,
             ) as err:
