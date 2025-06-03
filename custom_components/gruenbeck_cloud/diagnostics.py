@@ -72,7 +72,7 @@ async def async_get_config_entry_diagnostics(
     coordinator: GruenbeckCloudCoordinator = hass.data[DOMAIN][config_entry.entry_id]
 
     # Get Diagnostics from API
-    data["coordinator"] = await coordinator.api.get_diagnostics()
+    data["coordinator"] = await coordinator.api.get_diagnostics()  # type: ignore[assignment]
 
     # Gather information how device is represented in Home Assistant
     device_registry = dr.async_get(hass)
@@ -107,5 +107,8 @@ async def async_get_config_entry_diagnostics(
             ),
             "state": state_dict,
         }
+
+    if not isinstance(config_entry.unique_id, str):
+        return data
 
     return redact_serial_number(config_entry.unique_id, data)

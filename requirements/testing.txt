@@ -8,11 +8,11 @@ mypy==1.14.1
 pre-commit==4.0.1
 pytest==8.3.5
 pytest-cov==6.1.1
-pytest-aiohttp==1.0.5
+pytest-aiohttp==1.1.0
 pytest-asyncio==0.26.0
 codespell==2.3.0
 ruff==0.9.1
 yamllint==1.35.1
 pydantic==2.11.5
 pylint-per-file-ignores==1.4.0
-pygruenbeck_cloud==0.2.0
+pygruenbeck_cloud==1.2.0
