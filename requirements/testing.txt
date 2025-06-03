@@ -13,6 +13,6 @@ pytest-asyncio==0.26.0
 codespell==2.3.0
 ruff==0.9.1
 yamllint==1.35.1
-pydantic==2.10.5
+pydantic==2.11.5
 pylint-per-file-ignores==1.4.0
 pygruenbeck_cloud==0.2.0
