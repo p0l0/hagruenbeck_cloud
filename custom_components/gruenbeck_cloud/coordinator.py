@@ -6,8 +6,8 @@ from typing import Any
 
 from pygruenbeck_cloud import PyGruenbeckCloud
 from pygruenbeck_cloud.exceptions import (
-    PyGruenbeckCloudConnectionError,
     PyGruenbeckCloudConnectionClosedError,
+    PyGruenbeckCloudConnectionError,
     PyGruenbeckCloudError,
     PyGruenbeckCloudResponseStatusError,
     PyGruenbeckCloudUpdateParameterError,
