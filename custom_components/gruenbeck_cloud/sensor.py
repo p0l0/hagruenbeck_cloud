@@ -151,21 +151,6 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
             else None
         },
     ),
-    # Perform maintenance in [days]
-    GruenbeckCloudEntityDescription(
-        key="next_service",
-        translation_key="next_service",
-        native_unit_of_measurement=UnitOfTime.DAYS,
-        # device_class=SensorDeviceClass.DURATION,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        value_fn=lambda device: device.realtime.next_service,
-    ),
-    # Remaining amount / time of current regeneration step
-    GruenbeckCloudEntityDescription(
-        key="regeneration_remaining_time",
-        translation_key="regeneration_remaining_time",
-        value_fn=lambda device: device.realtime.regeneration_remaining_time,
-    ),
     # Regeneration step
     GruenbeckCloudEntityDescription(
         key="regeneration_step",
@@ -181,6 +166,23 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
     # Disabled Entities - Need to be activated manually in Frontend #
     #                                                               #
     #################################################################
+    # Perform maintenance in [days]
+    GruenbeckCloudEntityDescription(
+        key="next_service",
+        translation_key="next_service",
+        entity_registry_enabled_default=False,  # Not available at SE devices
+        native_unit_of_measurement=UnitOfTime.DAYS,
+        # device_class=SensorDeviceClass.DURATION,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        value_fn=lambda device: device.realtime.next_service,
+    ),
+    # Remaining amount / time of current regeneration step
+    GruenbeckCloudEntityDescription(
+        key="regeneration_remaining_time",
+        translation_key="regeneration_remaining_time",
+        entity_registry_enabled_default=False,  # Not available at SE devices
+        value_fn=lambda device: device.realtime.regeneration_remaining_time,
+    ),
     # Soft water exchanger 2 [l]
     GruenbeckCloudEntityDescription(
         key="soft_water_quantity_2",
