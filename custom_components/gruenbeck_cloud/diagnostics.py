@@ -45,7 +45,7 @@ async def async_get_config_entry_diagnostics(
 
         for key, value in redacted.items():
             if value is None:
-                result[key] = value
+                result[key] = value  # type: ignore[assignment]
                 continue
             if isinstance(value, str) and not value:
                 result[key] = value
