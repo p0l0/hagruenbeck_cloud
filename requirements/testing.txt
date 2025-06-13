@@ -1,6 +1,6 @@
 -r development.txt
 flake8==7.1.1
-flake8-isort==6.1.1
+flake8-isort==6.1.2
 pydocstyle==6.3.0
 pylint==3.3.7
 pylint-strict-informational==0.1
