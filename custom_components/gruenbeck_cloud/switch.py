@@ -26,7 +26,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True, kw_only=True)
-class GruenbeckCloudEntityDescription(SwitchEntityDescription):
+class GruenbeckCloudEntityDescription(SwitchEntityDescription):  # type: ignore[override]
     """Describes a Grünbeck Cloud entity."""
 
     exists_fn: Callable[[Device], bool] = lambda _: True

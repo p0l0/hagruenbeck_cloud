@@ -39,7 +39,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True, kw_only=True)
-class GruenbeckCloudEntityDescription(SensorEntityDescription):
+class GruenbeckCloudEntityDescription(SensorEntityDescription):  # type: ignore[override]
     """Describes a Grünbeck Cloud entity."""
 
     exists_fn: Callable[[Device], bool] = lambda _: True
@@ -75,14 +75,18 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="raw_water",
         native_unit_of_measurement=UNIT_OF_DH,
         entity_category=EntityCategory.DIAGNOSTIC,
-        value_fn=lambda device: device.raw_water,
+        value_fn=lambda device: device.parameters.raw_water_hardness
+        if device.parameters.raw_water_hardness is not None
+        else device.raw_water,
     ),
     GruenbeckCloudEntityDescription(
         key="soft_water",
         translation_key="soft_water",
         native_unit_of_measurement=UNIT_OF_DH,
         entity_category=EntityCategory.DIAGNOSTIC,
-        value_fn=lambda device: device.soft_water,
+        value_fn=lambda device: device.parameters.soft_water_hardness
+        if device.parameters.soft_water_hardness is not None
+        else device.soft_water,
     ),
     # Soft water exchanger 1 [l]
     GruenbeckCloudEntityDescription(
