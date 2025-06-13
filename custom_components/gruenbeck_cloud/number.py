@@ -34,7 +34,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True, kw_only=True)
-class GruenbeckCloudEntityDescription(NumberEntityDescription):  # type: ignore[override]
+class GruenbeckCloudEntityDescription(NumberEntityDescription):
     """Describes a Grünbeck Cloud entity."""
 
     exists_fn: Callable[[Device], bool] = lambda _: True
