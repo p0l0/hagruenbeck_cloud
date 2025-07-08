@@ -25,7 +25,6 @@ from homeassistant.core import (
     callback,
 )
 from homeassistant.exceptions import HomeAssistantError
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
 from .const import (
@@ -54,7 +53,6 @@ class GruenbeckCloudCoordinator(DataUpdateCoordinator[Device]):
             username=config_entry.data[CONF_USERNAME],
             password=config_entry.data[CONF_PASSWORD],
         )
-        self.api.session = async_get_clientsession(hass)
         self.api.logger = _LOGGER
         self._device_id = config_entry.data[CONF_DEVICE_ID]
 

@@ -1,6 +1,6 @@
 {
   "name": "hagruenbeck_cloud",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "image": "mcr.microsoft.com/devcontainers/python:3.13",
   "appPort": ["8123:8123"],
   "customizations": {
     "vscode": {
