@@ -13,7 +13,7 @@ all:
 	@echo "lint            -- run all linting tests"
 
 develop:
-	@pip install -r requirements/development.txt
+	@sudo pip install -r requirements/development.txt
 	@bash scripts/develop
 
 test_setup:
