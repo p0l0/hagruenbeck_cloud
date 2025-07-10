@@ -12,7 +12,6 @@ from homeassistant import config_entries
 from homeassistant.config_entries import ConfigFlowResult
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
 from homeassistant.exceptions import HomeAssistantError
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.selector import (
     SelectOptionDict,
     SelectSelectorMode,
@@ -116,12 +115,10 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     async def get_devices(self, data: dict[str, Any]) -> list[Device]:
         """Validate the user input if we are able to connect."""
         try:
-            session = async_get_clientsession(self.hass)
             api = PyGruenbeckCloud(
                 username=data[CONF_USERNAME],
                 password=data[CONF_PASSWORD],
             )
-            api.session = session
 
             # Test Login credentials
             if not await api.login():
