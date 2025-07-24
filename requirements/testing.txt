@@ -4,7 +4,7 @@ flake8-isort==6.1.2
 pydocstyle==6.3.0
 pylint==3.3.7
 pylint-strict-informational==0.1
-mypy==1.16.1
+mypy==1.17.0
 pre-commit==4.2.0
 pytest==8.4.1
 pytest-cov==6.2.1
