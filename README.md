@@ -167,12 +167,13 @@ Assuming you have already installed and configured HACS, follow these steps:
 1. Navigate to the HACS integrations page
 2. Choose Integrations under HACS
 3. Click on the three small dots in the upper right corner and select `Custom repositories` and add this URL:
-```bash
-https://github.com/p0l0/hagruenbeck_cloud/
-```
-4. Click the '+' button on the bottom of the page
-5. Search for "Grünbeck Cloud", choose it, and click install in HACS
-6. Ready! Now continue with the configuration.
+    ```bash
+    https://github.com/p0l0/hagruenbeck_cloud/
+    ```
+4. Select Type `Integration`
+5. Click the `ADD` button on the bottom of the dialog
+6. Search for "Grünbeck Cloud", select it, and click `DOWNLOAD` in HACS
+7. Ready! Now continue with the configuration (after restarting Home Assistant).
 
 # Configuration
 
