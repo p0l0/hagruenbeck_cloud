@@ -115,6 +115,7 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         translation_key="current_flow_rate",
         native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
+        state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda device: device.realtime.current_flow_rate,
     ),
     # Soft water Exchanger 1 [m³]
@@ -204,6 +205,7 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         entity_registry_enabled_default=False,
         native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
+        state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda device: device.realtime.current_flow_rate_2,
     ),
     # Soft water Exchanger 2 [m³]
