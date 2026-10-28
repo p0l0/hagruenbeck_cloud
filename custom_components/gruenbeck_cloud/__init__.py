@@ -9,7 +9,7 @@ from homeassistant.core import HomeAssistant
 
 from .const import DOMAIN
 from .coordinator import GruenbeckCloudCoordinator
-from .services import register_services
+from .services import register_services, unregister_services
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -57,6 +57,9 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                 coordinator.unsub()
 
         del hass.data[DOMAIN][entry.entry_id]
+        if not hass.data[DOMAIN]:
+            hass.data.pop(DOMAIN)
+            unregister_services(hass)
 
     return unload_ok
 

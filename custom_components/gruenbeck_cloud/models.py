@@ -2,7 +2,7 @@
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN, MANUFACTURER
+from .const import CONFIGURATION_URL, DOMAIN, MANUFACTURER
 from .coordinator import GruenbeckCloudCoordinator
 
 
@@ -22,4 +22,5 @@ class GruenbeckCloudEntity(CoordinatorEntity[GruenbeckCloudCoordinator]):
             model=self.coordinator.data.series,
             hw_version=self.coordinator.data.hardware_version,
             sw_version=self.coordinator.data.software_version,
+            configuration_url=CONFIGURATION_URL,
         )

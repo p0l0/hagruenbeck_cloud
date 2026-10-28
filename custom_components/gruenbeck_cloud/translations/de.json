@@ -71,7 +71,8 @@
       },
       "mode_individual_sunday": {
         "name": "Arbeitsweise Sonntag"
-      },"regeneration_mode": {
+      },
+      "regeneration_mode": {
         "name": "Regenerationsmodus"
       },
       "water_hardness_unit": {
@@ -99,7 +100,7 @@
       "installer_email": {
         "name": "Installateur Email"
       }
-  },
+    },
     "number": {
       "raw_water_hardness": {
         "name": "Rohwasserhärte"
@@ -345,7 +346,7 @@
         "name": "Restkapazität Austauscher 2 %"
       },
       "salt_range": {
-        "name": "Salzvorrat"
+        "name": "Salzreichweite"
       },
       "salt_consumption": {
         "name": "Salzverbrauch"

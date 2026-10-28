@@ -8,6 +8,7 @@ DOMAIN: Final = "gruenbeck_cloud"
 NAME: Final = "Grünbeck Cloud"
 COORDINATOR: Final = "coordinator"
 MANUFACTURER: Final = "Grünbeck Wasseraufbereitung GmbH"
+CONFIGURATION_URL: Final = "https://www.gruenbeck.de/"
 
 # Configuration parameter
 CONF_DEVICE_ID: Final = "device_id"
