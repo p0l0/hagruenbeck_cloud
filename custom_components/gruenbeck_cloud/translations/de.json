@@ -1,13 +1,15 @@
 {
   "config": {
     "abort": {
-      "already_configured": "Gerät ist bereits konfiguriert"
+      "already_configured": "Gerät ist bereits konfiguriert",
+      "reauth_successful": "Erneute Authentifizierung war erfolgreich"
     },
     "error": {
       "cannot_connect": "Verbindung fehlgeschlagen",
       "cannot_connect_timeout": "Timeout beim Verbindungsversuch",
       "unknown": "Unerwarteter Fehler",
-      "no_devices": "Keine Geräte im Account gefunden"
+      "no_devices": "Keine Geräte im Account gefunden",
+      "invalid_auth": "Ungültige Anmeldedaten"
     },
     "step": {
       "user": {
@@ -15,6 +17,14 @@
           "password": "Passwort",
           "username": "Benutzername"
         }
+      },
+      "reauth_confirm": {
+        "data": {
+          "password": "Passwort",
+          "username": "Benutzername"
+        },
+        "description": "Die Grünbeck-Cloud-Zugangsdaten sind nicht mehr gültig. Bitte erneut eingeben.",
+        "title": "Grünbeck Cloud erneut authentifizieren"
       }
     }
   },
@@ -71,7 +81,8 @@
       },
       "mode_individual_sunday": {
         "name": "Arbeitsweise Sonntag"
-      },"regeneration_mode": {
+      },
+      "regeneration_mode": {
         "name": "Regenerationsmodus"
       },
       "water_hardness_unit": {
@@ -99,7 +110,7 @@
       "installer_email": {
         "name": "Installateur Email"
       }
-  },
+    },
     "number": {
       "raw_water_hardness": {
         "name": "Rohwasserhärte"
