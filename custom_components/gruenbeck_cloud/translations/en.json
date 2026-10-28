@@ -22,6 +22,12 @@
     "binary_sensor": {
       "has_error": {
         "name": "Has error"
+      },
+      "has_warning": {
+        "name": "Has warning"
+      },
+      "salt_supply_low": {
+        "name": "Salt supply low"
       }
     },
     "number": {
@@ -379,6 +385,18 @@
       },
       "regeneration_time_wednesday_3": {
         "name": "Regeneration Time Wednesday #3"
+      }
+    },
+    "event": {
+      "device_alert": {
+        "name": "Device alert",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "device_alert": "Device alert"
+            }
+          }
+        }
       }
     }
   },

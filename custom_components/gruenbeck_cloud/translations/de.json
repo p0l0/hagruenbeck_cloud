@@ -71,7 +71,8 @@
       },
       "mode_individual_sunday": {
         "name": "Arbeitsweise Sonntag"
-      },"regeneration_mode": {
+      },
+      "regeneration_mode": {
         "name": "Regenerationsmodus"
       },
       "water_hardness_unit": {
@@ -87,6 +88,12 @@
     "binary_sensor": {
       "has_error": {
         "name": "Fehler"
+      },
+      "has_warning": {
+        "name": "Warnung"
+      },
+      "salt_supply_low": {
+        "name": "Salzvorrat gering"
       }
     },
     "text": {
@@ -99,7 +106,7 @@
       "installer_email": {
         "name": "Installateur Email"
       }
-  },
+    },
     "number": {
       "raw_water_hardness": {
         "name": "Rohwasserhärte"
@@ -406,6 +413,18 @@
       },
       "remaining_amount_of_water": {
         "name": "Adsorber Restwassermenge"
+      }
+    },
+    "event": {
+      "device_alert": {
+        "name": "Gerätealarm",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "device_alert": "Gerätealarm"
+            }
+          }
+        }
       }
     }
   }

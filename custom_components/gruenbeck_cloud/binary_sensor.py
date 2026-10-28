@@ -19,6 +19,7 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .const import DOMAIN
 from .coordinator import GruenbeckCloudCoordinator
+from .helpers import has_salt_supply_low, has_unresolved_warning, unresolved_errors
 from .models import GruenbeckCloudEntity
 
 _LOGGER = logging.getLogger(__name__)
@@ -41,7 +42,28 @@ BINARY_SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         value_fn=lambda device: device.has_error,
         extra_attr_fn=lambda device: {
             "errors": [error.to_dict() for error in device.errors]  # type: ignore[union-attr]  # noqa: E501
+            if device.errors is not None
+            else []
         },
+    ),
+    GruenbeckCloudEntityDescription(
+        key="has_warning",
+        translation_key="has_warning",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        value_fn=has_unresolved_warning,
+        extra_attr_fn=lambda device: {
+            "warnings": [
+                error.to_dict()
+                for error in unresolved_errors(device)
+                if error.type == "warning"
+            ]
+        },
+    ),
+    GruenbeckCloudEntityDescription(
+        key="salt_supply_low",
+        translation_key="salt_supply_low",
+        device_class=BinarySensorDeviceClass.PROBLEM,
+        value_fn=has_salt_supply_low,
     ),
 )
 
