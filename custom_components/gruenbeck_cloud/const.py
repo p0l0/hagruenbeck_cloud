@@ -14,6 +14,12 @@ CONF_DEVICE_ID: Final = "device_id"
 
 # Polling update interval
 UPDATE_INTERVAL: Final = timedelta(seconds=360)
+UPDATE_INTERVAL_RETRY: Final = timedelta(seconds=60)
+
+# Device alerts
+ERROR_CODE_SALT_SUPPLY_LOW: Final = 26
+EVENT_DEVICE_ALERT: Final = f"{DOMAIN}_device_alert"
+EVENT_TYPE_DEVICE_ALERT: Final = "device_alert"
 
 # Custom Unit of Measurement
 UNIT_OF_DH: Final = "°dH"

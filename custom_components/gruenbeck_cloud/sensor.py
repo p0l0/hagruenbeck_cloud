@@ -33,6 +33,7 @@ from homeassistant.helpers.typing import StateType
 
 from .const import DOMAIN, UNIT_OF_DH, UNIT_OF_L_HOUR, UNIT_OF_M3_X_DH
 from .coordinator import GruenbeckCloudCoordinator
+from .helpers import daily_usage_value
 from .models import GruenbeckCloudEntity
 
 _LOGGER = logging.getLogger(__name__)
@@ -116,6 +117,42 @@ SENSORS: tuple[GruenbeckCloudEntityDescription, ...] = (
         native_unit_of_measurement=UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
         device_class=SensorDeviceClass.VOLUME_FLOW_RATE,
         value_fn=lambda device: device.realtime.current_flow_rate,
+    ),
+    # Soft water usage yesterday [l]
+    GruenbeckCloudEntityDescription(
+        key="soft_water_quantity_yesterday",
+        translation_key="soft_water_quantity_yesterday",
+        native_unit_of_measurement=UnitOfVolume.LITERS,
+        device_class=SensorDeviceClass.WATER,
+        state_class=SensorStateClass.TOTAL,
+        value_fn=lambda device: daily_usage_value(device.water, days_ago=1),
+    ),
+    # Soft water usage today [l]
+    GruenbeckCloudEntityDescription(
+        key="soft_water_quantity_today",
+        translation_key="soft_water_quantity_today",
+        native_unit_of_measurement=UnitOfVolume.LITERS,
+        device_class=SensorDeviceClass.WATER,
+        state_class=SensorStateClass.TOTAL,
+        value_fn=lambda device: daily_usage_value(device.water, days_ago=0),
+    ),
+    # Salt usage yesterday [kg] — API returns integer daily values
+    GruenbeckCloudEntityDescription(
+        key="salt_consumption_yesterday",
+        translation_key="salt_consumption_yesterday",
+        native_unit_of_measurement=UnitOfMass.KILOGRAMS,
+        device_class=SensorDeviceClass.WEIGHT,
+        state_class=SensorStateClass.TOTAL,
+        value_fn=lambda device: daily_usage_value(device.salt, days_ago=1),
+    ),
+    # Salt usage today [kg]
+    GruenbeckCloudEntityDescription(
+        key="salt_consumption_today",
+        translation_key="salt_consumption_today",
+        native_unit_of_measurement=UnitOfMass.KILOGRAMS,
+        device_class=SensorDeviceClass.WEIGHT,
+        state_class=SensorStateClass.TOTAL,
+        value_fn=lambda device: daily_usage_value(device.salt, days_ago=0),
     ),
     # Soft water Exchanger 1 [m³]
     GruenbeckCloudEntityDescription(

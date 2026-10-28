@@ -22,6 +22,12 @@
     "binary_sensor": {
       "has_error": {
         "name": "Has error"
+      },
+      "has_warning": {
+        "name": "Has warning"
+      },
+      "salt_supply_low": {
+        "name": "Salt supply low"
       }
     },
     "number": {
@@ -271,6 +277,18 @@
       },
       "step_indication_regeneration_valve_2": {
         "name": "Step indication regeneration valve 2"
+      },
+      "soft_water_quantity_today": {
+        "name": "Soft Water Quantity Today"
+      },
+      "soft_water_quantity_yesterday": {
+        "name": "Soft Water Quantity Yesterday"
+      },
+      "salt_consumption_today": {
+        "name": "Salt Consumption Today"
+      },
+      "salt_consumption_yesterday": {
+        "name": "Salt Consumption Yesterday"
       }
     },
     "switch": {
@@ -379,6 +397,18 @@
       },
       "regeneration_time_wednesday_3": {
         "name": "Regeneration Time Wednesday #3"
+      }
+    },
+    "event": {
+      "device_alert": {
+        "name": "Device alert",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "device_alert": "Device alert"
+            }
+          }
+        }
       }
     }
   },
